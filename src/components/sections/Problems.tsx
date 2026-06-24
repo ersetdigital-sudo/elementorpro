@@ -44,7 +44,7 @@ const features = [
   {
     icon: Grid3X3,
     title: "Widget Premium",
-    desc: "90+ widget tambahan seperti price table, flip box, testimonial carousel, dan progress tracker.",
+    desc: "85+ widget tambahan seperti price table, flip box, testimonial carousel, dan progress tracker.",
   },
 ];
 
