@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
  */
 export function Intro() {
   return (
-    <section className="bg-ink py-16 md:py-20">
+    <section className="bg-ink py-12 md:py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="space-y-5 text-center text-base leading-relaxed text-muted sm:text-lg">
           <p>
