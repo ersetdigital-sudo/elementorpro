@@ -15,7 +15,8 @@ export function localBusinessSchema() {
     "@type": "LocalBusiness",
     "@id": `${siteConfig.url}/#localbusiness`,
     name: siteConfig.name,
-    description: siteConfig.description,
+    description:
+      "Jasa install Elementor Pro Indonesia untuk website WordPress, landing page, toko online, dan company profile. Proses cepat, aman, dan bergaransi.",
     url: siteConfig.url,
     telephone: `+${siteConfig.whatsappNumber}`,
     email: siteConfig.email,
@@ -23,10 +24,18 @@ export function localBusinessSchema() {
     address: {
       "@type": "PostalAddress",
       addressCountry: "ID",
+      addressRegion: "Indonesia",
     },
     areaServed: {
       "@type": "Country",
       name: "Indonesia",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: `+${siteConfig.whatsappNumber}`,
+      contactType: "customer service",
+      availableLanguage: "Indonesian",
+      areaServed: "ID",
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -42,7 +51,7 @@ export function localBusinessSchema() {
       opens: "08:00",
       closes: "21:00",
     },
-    priceRange: "$$",
+    priceRange: "Estimasi via WhatsApp",
   };
 }
 
@@ -53,7 +62,8 @@ export function serviceSchema() {
     "@id": `${siteConfig.url}/#service`,
     serviceType: "Jasa Install Elementor Pro",
     name: "Jasa Install Elementor Pro",
-    description: siteConfig.description,
+    description:
+      "Jasa install Elementor Pro original untuk website WordPress, landing page, toko online, dan company profile di seluruh Indonesia.",
     provider: {
       "@type": "LocalBusiness",
       name: siteConfig.name,
@@ -66,8 +76,10 @@ export function serviceSchema() {
     offers: {
       "@type": "Offer",
       priceCurrency: "IDR",
+      price: "0",
+      description: "Estimasi harga diberikan via WhatsApp setelah konsultasi",
       availability: "https://schema.org/InStock",
-      url: `${siteConfig.url}/#pricing`,
+      url: `${siteConfig.url}/#harga`,
     },
   };
 }

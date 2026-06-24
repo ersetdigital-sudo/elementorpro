@@ -23,7 +23,7 @@ export const siteConfig = {
     "https://jasaelementorpro.web.id"
   ).replace(/\/$/, ""),
   email: requiredEnv("NEXT_PUBLIC_EMAIL", "halo@jasaelementorpro.web.id"),
-  whatsappNumber: requiredEnv("NEXT_PUBLIC_WHATSAPP_NUMBER", "6200000000000"),
+  whatsappNumber: requiredEnv("NEXT_PUBLIC_WHATSAPP_NUMBER", "6281573059442"),
   description:
     "Spesialis jasa install Elementor Pro untuk pengguna WordPress Indonesia.",
 } as const;

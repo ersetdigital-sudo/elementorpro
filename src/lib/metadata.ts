@@ -24,18 +24,6 @@ export const baseMetadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
-  keywords: [
-    "jasa install elementor pro",
-    "jasa instal elementor pro",
-    "jasa pasang elementor pro",
-    "jasa setup elementor pro",
-    "install elementor pro murah",
-    "jasa aktivasi elementor pro",
-    "setup wordpress elementor",
-    "jasa landing page elementor",
-    "jasa website elementor",
-    "jasa desain landing page wordpress",
-  ],
   alternates: {
     canonical: "/",
   },
