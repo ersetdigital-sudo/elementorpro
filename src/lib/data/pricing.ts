@@ -1,9 +1,5 @@
 /**
- * Pricing data.
- *
- * ⚠️ TRUST RULE: Harga harus data NYATA. Ini placeholder aman.
- * Ganti angka dengan data resmi sebelum production, atau pakai opsi
- * "Hubungi untuk harga" jika belum final.
+ * Pricing data — harga jasa install Elementor Pro.
  */
 import type { LucideIcon } from "lucide-react";
 import { Check } from "lucide-react";
@@ -21,49 +17,44 @@ export interface PricingPlan {
 
 export const pricingPlans: PricingPlan[] = [
   {
-    name: "Instalasi",
-    price: "Hubungi Kami",
-    priceNote: "estimasi via WhatsApp",
-    description:
-      "Cocok untuk Anda yang sudah punya WordPress dan hanya butuh pemasangan Elementor Pro.",
+    name: "Starter",
+    price: "Rp99.000",
+    priceNote: "/tahun",
+    description: "Untuk 1 website pribadi atau portofolio.",
     features: [
-      "Instalasi plugin Elementor Pro",
-      "Aktivasi & verifikasi",
-      "Cek kompatibilitas tema",
-      "Garansi pemasangan",
+      "Elementor Pro Original 1 Domain",
+      "Auto Update via Dashboard",
+      "Garansi Aktivasi 30 Hari",
+      "Support WhatsApp",
     ],
-    cta: "Pesan Instalasi",
+    cta: "Pesan Starter",
   },
   {
-    name: "Setup Lengkap",
-    price: "Hubungi Kami",
-    priceNote: "estimasi via WhatsApp",
-    description:
-      "Paket favorit: install Elementor Pro plus konfigurasi WordPress agar siap pakai.",
+    name: "Multisite",
+    price: "Rp149.000",
+    priceNote: "/tahun",
+    description: "Untuk agency atau pemilik banyak website.",
     features: [
-      "Semua di paket Instalasi",
-      "Setup & konfigurasi awal",
-      "Optimasi performa dasar",
-      "Pengaturan struktur halaman",
-      "Bantuan via WhatsApp",
+      "Elementor Pro Original 3 Domain",
+      "Auto Update via Dashboard",
+      "Garansi Aktivasi 30 Hari",
+      "Prioritas Support WhatsApp",
     ],
-    cta: "Pesan Setup Lengkap",
+    cta: "Pesan Multisite",
     highlighted: true,
   },
   {
-    name: "Landing Page Custom",
-    price: "Hubungi Kami",
-    priceNote: "estimasi via WhatsApp",
-    description:
-      "Install Elementor Pro sekaligus pembuatan landing page profesional sesuai brand Anda.",
+    name: "Agency",
+    price: "Rp349.000",
+    priceNote: "/tahun",
+    description: "Untuk developer atau agency dengan volume tinggi.",
     features: [
-      "Semua di paket Setup Lengkap",
-      "Desain landing page custom",
-      "Responsif mobile & desktop",
-      "Siap konversi & SEO dasar",
-      "Revisi sesuai kesepakatan",
+      "Elementor Pro Original 10 Domain",
+      "Auto Update via Dashboard",
+      "Garansi Aktivasi 30 Hari",
+      "Support WhatsApp Dedicated",
     ],
-    cta: "Pesan Landing Page",
+    cta: "Pesan Agency",
   },
 ];
 
