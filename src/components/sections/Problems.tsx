@@ -1,4 +1,4 @@
-import { Layout, FileText, Bell, Palette } from "lucide-react";
+import { Layout, FileText, Bell, Palette, Sparkles, Repeat, Database, Grid3X3 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
@@ -8,23 +8,43 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const features = [
   {
     icon: Palette,
-    title: "Template Website Siap Pakai",
-    desc: "Ratusan template profesional untuk website bisnis, landing page, toko online, hingga company profile — tanpa desain dari nol.",
-  },
-  {
-    icon: FileText,
-    title: "Form Builder Profesional",
-    desc: "Buat formulir kontak, konsultasi, hingga pengumpulan leads langsung di WordPress tanpa plugin tambahan.",
+    title: "Theme Builder",
+    desc: "Buat header, footer, single post, dan archive page custom tanpa coding.",
   },
   {
     icon: Bell,
     title: "Popup Builder",
-    desc: "Tampilkan promo, diskon, atau formulir newsletter tanpa coding.",
+    desc: "Desain popup promo, lead magnet, dan announcement dengan trigger canggih.",
+  },
+  {
+    icon: FileText,
+    title: "Form Builder",
+    desc: "Form kontak, file upload, multi step, dan integrasi ke email marketing.",
   },
   {
     icon: Layout,
-    title: "Theme Builder Lengkap",
-    desc: "Atur header, footer, halaman produk, dan blog secara visual dengan drag and drop.",
+    title: "WooCommerce Builder",
+    desc: "Kustom halaman produk, checkout, dan shop layout toko online Anda.",
+  },
+  {
+    icon: Sparkles,
+    title: "Motion Effects",
+    desc: "Animasi scroll, parallax, mouse track, dan efek interaktif tanpa plugin tambahan.",
+  },
+  {
+    icon: Repeat,
+    title: "Loop Builder",
+    desc: "Tampilkan daftar post, produk, atau portfolio dengan desain custom tanpa batas.",
+  },
+  {
+    icon: Database,
+    title: "Dynamic Content",
+    desc: "Tampilkan data custom field, ACF, dan custom post type secara otomatis.",
+  },
+  {
+    icon: Grid3X3,
+    title: "Widget Premium",
+    desc: "90+ widget tambahan seperti price table, flip box, testimonial carousel, dan progress tracker.",
   },
 ];
 
@@ -45,7 +65,7 @@ export function Problems() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((item, i) => (
             <ScrollReveal
               key={item.title}
@@ -64,14 +84,6 @@ export function Problems() {
             </ScrollReveal>
           ))}
         </div>
-
-        <ScrollReveal className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="text-muted">
-            Dengan berbagai fitur tersebut, Elementor Pro membantu pemilik
-            bisnis membangun website yang lebih profesional, responsif, dan
-            siap digunakan untuk mendukung pertumbuhan usaha.
-          </p>
-        </ScrollReveal>
       </div>
     </section>
   );
