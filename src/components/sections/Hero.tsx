@@ -28,8 +28,8 @@ export function Hero() {
 
           {/* H1 — primary keyword */}
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-text sm:text-5xl md:text-6xl">
-            Jasa Install <GradientText>Elementor Pro</GradientText> Terpercaya
-            &amp; Cepat
+            Jasa Install <GradientText>Elementor Pro</GradientText> Indonesia
+            Terpercaya &amp; Bergaransi
           </h1>
 
           {/* Subheadline — keyword natural + benefit */}
