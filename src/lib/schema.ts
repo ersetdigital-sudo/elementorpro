@@ -65,7 +65,7 @@ export function serviceSchema() {
     description:
       "Jasa install Elementor Pro original untuk website WordPress, landing page, toko online, dan company profile di seluruh Indonesia.",
     provider: {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
@@ -73,14 +73,64 @@ export function serviceSchema() {
       "@type": "Country",
       name: "Indonesia",
     },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "IDR",
-      price: "0",
-      description: "Estimasi harga diberikan via WhatsApp setelah konsultasi",
-      availability: "https://schema.org/InStock",
-      url: `${siteConfig.url}/#harga`,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Paket Jasa Install Elementor Pro",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          name: "Starter",
+          description: "Elementor Pro Original 1 Domain",
+          priceCurrency: "IDR",
+          price: "99000",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          url: `${siteConfig.url}/#harga`,
+        },
+        {
+          "@type": "Offer",
+          name: "Multisite",
+          description: "Elementor Pro Original 3 Domain",
+          priceCurrency: "IDR",
+          price: "149000",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          url: `${siteConfig.url}/#harga`,
+        },
+        {
+          "@type": "Offer",
+          name: "Agency",
+          description: "Elementor Pro Original 10 Domain",
+          priceCurrency: "IDR",
+          price: "349000",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          url: `${siteConfig.url}/#harga`,
+        },
+      ],
     },
+  };
+}
+
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteConfig.url}/#organization`,
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/logo.png`,
+    description:
+      "Jasa install Elementor Pro Indonesia untuk website WordPress, landing page, toko online, dan company profile.",
+    email: siteConfig.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: `+${siteConfig.whatsappNumber}`,
+      contactType: "customer service",
+      availableLanguage: "Indonesian",
+      areaServed: "ID",
+    },
+    sameAs: [],
   };
 }
 
@@ -136,6 +186,7 @@ export function websiteSchema() {
 /** Render semua schema sebagai <script> tag (inject di layout). */
 export function allSchemas() {
   return [
+    organizationSchema(),
     localBusinessSchema(),
     serviceSchema(),
     faqSchema(),
