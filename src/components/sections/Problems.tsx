@@ -30,11 +30,11 @@ const features = [
 
 export function Problems() {
   return (
-    <section className="border-t border-white/5 bg-ink py-20 md:py-28">
+    <section className="bg-ink py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-brand">
-            Kenapa Elementor Pro
+            Fitur Unggulan
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-text sm:text-4xl">
             Kenapa Banyak Pengguna WordPress Memilih Elementor Pro?
