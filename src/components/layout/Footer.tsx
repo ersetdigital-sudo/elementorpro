@@ -19,8 +19,7 @@ export function Footer() {
         <div className="space-y-3">
           <p className="text-lg font-semibold text-text">{siteConfig.name}</p>
           <p className="max-w-xs text-sm leading-relaxed text-muted">
-            Spesialis jasa install Elementor Pro untuk pengguna WordPress
-            Indonesia.
+            Jasa Install Elementor Pro Indonesia untuk Website WordPress, Landing Page, dan Toko Online.
           </p>
         </div>
 
@@ -71,19 +70,16 @@ export function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-center text-xs text-muted sm:px-6 sm:text-left md:flex-row lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-6 text-center text-xs text-muted sm:px-6 lg:px-8">
           <p>
-            © {year} {siteConfig.name}. All rights reserved.
-          </p>
-          <p>
-            Powered by{" "}
+            © 2026 Elementor Pro ID | Spesialis Jasa Install Elementor Pro untuk WordPress Indonesia | Powered by{" "}
             <a
               href="https://www.nexaplus.web.id/"
               className="font-medium text-brand transition hover:brightness-125"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {siteConfig.parentBrand}
+              NexaPlus
             </a>
           </p>
         </div>
