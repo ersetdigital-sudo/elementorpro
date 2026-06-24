@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { faq } from "@/lib/data/faq";
-import { whatsappLink } from "@/lib/site";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
@@ -76,22 +75,7 @@ export function FAQ() {
           })}
         </div>
 
-        {/* Section CTA */}
-        <ScrollReveal className="mt-10 text-center">
-          <p className="text-sm text-muted">
-            Masih ada pertanyaan lain?
-          </p>
-          <a
-            href={whatsappLink(
-              "Halo, saya mau tanya soal jasa install Elementor Pro."
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center justify-center rounded-full bg-brand px-7 py-3 text-sm font-semibold text-brand-foreground transition hover:brightness-110"
-          >
-            Tanya via WhatsApp
-          </a>
-        </ScrollReveal>
+        {/* End of FAQ */}
       </div>
     </section>
   );
