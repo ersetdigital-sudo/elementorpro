@@ -9,22 +9,22 @@ const features = [
   {
     icon: Palette,
     title: "Template Website Siap Pakai",
-    desc: "Elementor Pro menyediakan ratusan template profesional yang dapat digunakan untuk website bisnis, landing page, toko online, hingga company profile. Anda tidak perlu membuat desain dari nol sehingga proses pembuatan website menjadi lebih cepat.",
+    desc: "Ratusan template profesional untuk website bisnis, landing page, toko online, hingga company profile — tanpa desain dari nol.",
   },
   {
     icon: FileText,
     title: "Form Builder Profesional",
-    desc: "Buat formulir kontak, formulir konsultasi, hingga formulir pengumpulan leads langsung di WordPress tanpa perlu plugin tambahan.",
+    desc: "Buat formulir kontak, konsultasi, hingga pengumpulan leads langsung di WordPress tanpa plugin tambahan.",
   },
   {
     icon: Bell,
     title: "Popup Builder",
-    desc: "Tampilkan promo, diskon, formulir newsletter, atau pengingat checkout dengan mudah tanpa harus melakukan coding.",
+    desc: "Tampilkan promo, diskon, atau formulir newsletter tanpa coding.",
   },
   {
     icon: Layout,
     title: "Theme Builder Lengkap",
-    desc: "Atur header, footer, halaman produk, blog, dan berbagai bagian website WordPress secara visual dengan sistem drag and drop.",
+    desc: "Atur header, footer, halaman produk, dan blog secara visual dengan drag and drop.",
   },
 ];
 
@@ -50,15 +50,15 @@ export function Problems() {
             <ScrollReveal
               key={item.title}
               delay={i * 0.1}
-              className="rounded-2xl border border-white/10 bg-surface p-7 transition hover:border-brand/30"
+              className="group relative rounded-2xl border border-white/10 bg-surface p-8 transition-all duration-300 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/5"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <item.icon className="h-5 w-5" aria-hidden="true" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand/20">
+                <item.icon className="h-6 w-6" aria-hidden="true" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-text">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <p className="mt-3 text-sm leading-relaxed text-muted">
                 {item.desc}
               </p>
             </ScrollReveal>
