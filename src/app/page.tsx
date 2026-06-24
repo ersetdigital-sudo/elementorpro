@@ -5,6 +5,7 @@ import { Masalahnya } from "@/components/sections/Masalahnya";
 import { SolusiCTA } from "@/components/sections/SolusiCTA";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Pricing } from "@/components/sections/Pricing";
+import { Bonus } from "@/components/sections/Bonus";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
@@ -12,7 +13,7 @@ import { CTA } from "@/components/sections/CTA";
 /**
  * Homepage — landing page jasa install Elementor Pro.
  * Urutan section:
- * Hero → Intro → Fitur → Masalahnya → SolusiCTA → HowItWorks → Pricing → WhyChooseUs → FAQ → CTA
+ * Hero → Intro → Fitur → Masalahnya → SolusiCTA → HowItWorks → Pricing → Bonus → WhyChooseUs → FAQ → CTA
  */
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <SolusiCTA />
       <HowItWorks />
       <Pricing />
+      <Bonus />
       <WhyChooseUs />
       <FAQ />
       <CTA />

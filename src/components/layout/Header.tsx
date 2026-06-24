@@ -92,7 +92,7 @@ export function Header() {
           aria-label={open ? "Tutup menu" : "Buka menu"}
           aria-expanded={open}
           aria-controls="mobile-drawer"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-text transition hover:bg-surface-2 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-text transition hover:bg-surface-2 md:hidden"
         >
           {open ? (
             <X className="h-6 w-6" aria-hidden="true" />
@@ -102,37 +102,71 @@ export function Header() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer + overlay */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            id="mobile-drawer"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-y-0 right-0 z-50 flex w-72 max-w-[80vw] flex-col gap-2 border-l border-white/10 bg-surface p-6 pt-20 md:hidden"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-text transition hover:bg-surface-2"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setOpen(false)}
-              className="mt-4 rounded-full bg-brand px-5 py-3 text-center font-semibold text-brand-foreground transition hover:brightness-110"
+              aria-hidden="true"
+            />
+
+            {/* Drawer */}
+            <motion.div
+              id="mobile-drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
+              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-[300px] flex-col bg-surface md:hidden"
             >
-              WhatsApp
-            </a>
-          </motion.div>
+              {/* Drawer header */}
+              <div className="flex h-16 items-center justify-between border-b border-white/10 px-5">
+                <span className="text-sm font-medium text-muted">Menu</span>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Tutup menu"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-text transition hover:bg-surface-2"
+                >
+                  <X className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <div className="flex flex-1 flex-col gap-1 p-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-3.5 text-base font-medium text-text transition hover:bg-surface-2"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* CTA button */}
+              <div className="border-t border-white/10 p-4">
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition hover:brightness-110"
+                >
+                  Hubungi via WhatsApp
+                </a>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
