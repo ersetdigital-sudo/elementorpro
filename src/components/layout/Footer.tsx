@@ -78,7 +78,7 @@ export function Footer() {
           <p>
             Powered by{" "}
             <a
-              href={`https://${siteConfig.domain}`}
+              href="https://www.nexaplus.web.id/"
               className="font-medium text-brand transition hover:brightness-125"
               target="_blank"
               rel="noopener noreferrer"

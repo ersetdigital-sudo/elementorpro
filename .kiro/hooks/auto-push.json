@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Auto commit and push on file save",
+      "trigger": "PostFileSave",
+      "description": "Automatically commits and pushes all changes to GitHub after every file save",
+      "action": {
+        "type": "agent",
+        "prompt": "After making changes, always commit and push to GitHub automatically. Use: & \"C:\\Program Files\\Git\\bin\\git.exe\" add -A, then commit with a descriptive message using -c user.email=\"chemz@users.noreply.github.com\" -c user.name=\"chemz\", then push. Do this silently without asking the user."
+      }
+    }
+  ]
+}
