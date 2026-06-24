@@ -2,12 +2,88 @@ import { siteConfig } from "@/lib/site";
 import { faq } from "@/lib/data/faq";
 
 /**
- * JSON-LD Schema pusat.
- * WAJIB 5 schema: LocalBusiness, Service, FAQPage, BreadcrumbList, WebSite.
- * JANGAN tambah Review/AggregateRating/Product/Course/Recipe kecuali data nyata.
- *
- * FAQ schema HARUS sama persis dengan FAQ section (source: lib/data/faq.ts).
+ * JSON-LD Schema pusat — optimized for GEO (AI Search visibility).
+ * Schemas: Organization, Service+Offer, FAQPage, LocalBusiness, BreadcrumbList, WebSite.
  */
+
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Elementor Pro ID",
+    url: `${siteConfig.url}/`,
+    logo: `${siteConfig.url}/logo.png`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+62-815-7305-9442",
+      contactType: "customer support",
+      availableLanguage: "Indonesian",
+    },
+  };
+}
+
+export function serviceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Jasa Install Elementor Pro Original",
+    description:
+      "Jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari.",
+    provider: {
+      "@type": "Organization",
+      name: "Elementor Pro ID",
+      url: `${siteConfig.url}/`,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Paket Starter \u2014 1 Domain",
+        description:
+          "Elementor Pro Original 1 domain, auto update, garansi aktivasi 30 hari, support WhatsApp.",
+        price: "99000",
+        priceCurrency: "IDR",
+        priceValidUntil: "2026-12-31",
+      },
+      {
+        "@type": "Offer",
+        name: "Paket Multisite \u2014 3 Domain",
+        description:
+          "Elementor Pro Original 3 domain, auto update, garansi aktivasi 30 hari, prioritas support WhatsApp.",
+        price: "149000",
+        priceCurrency: "IDR",
+        priceValidUntil: "2026-12-31",
+      },
+      {
+        "@type": "Offer",
+        name: "Paket Agency \u2014 10 Domain",
+        description:
+          "Elementor Pro Original 10 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
+        price: "349000",
+        priceCurrency: "IDR",
+        priceValidUntil: "2026-12-31",
+      },
+    ],
+  };
+}
+
+export function faqSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
 
 export function localBusinessSchema() {
   return {
@@ -18,7 +94,7 @@ export function localBusinessSchema() {
     description:
       "Jasa install Elementor Pro Indonesia untuk website WordPress, landing page, toko online, dan company profile. Proses cepat, aman, dan bergaransi.",
     url: siteConfig.url,
-    telephone: `+${siteConfig.whatsappNumber}`,
+    telephone: "+62-815-7305-9442",
     email: siteConfig.email,
     image: `${siteConfig.url}/og.png`,
     address: {
@@ -32,7 +108,7 @@ export function localBusinessSchema() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: `+${siteConfig.whatsappNumber}`,
+      telephone: "+62-815-7305-9442",
       contactType: "customer service",
       availableLanguage: "Indonesian",
       areaServed: "ID",
@@ -51,102 +127,7 @@ export function localBusinessSchema() {
       opens: "08:00",
       closes: "21:00",
     },
-    priceRange: "Estimasi via WhatsApp",
-  };
-}
-
-export function serviceSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${siteConfig.url}/#service`,
-    serviceType: "Jasa Install Elementor Pro",
-    name: "Jasa Install Elementor Pro",
-    description:
-      "Jasa install Elementor Pro original untuk website WordPress, landing page, toko online, dan company profile di seluruh Indonesia.",
-    provider: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Indonesia",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Paket Jasa Install Elementor Pro",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          name: "Starter",
-          description: "Elementor Pro Original 1 Domain",
-          priceCurrency: "IDR",
-          price: "99000",
-          priceValidUntil: "2026-12-31",
-          availability: "https://schema.org/InStock",
-          url: `${siteConfig.url}/#harga`,
-        },
-        {
-          "@type": "Offer",
-          name: "Multisite",
-          description: "Elementor Pro Original 3 Domain",
-          priceCurrency: "IDR",
-          price: "149000",
-          priceValidUntil: "2026-12-31",
-          availability: "https://schema.org/InStock",
-          url: `${siteConfig.url}/#harga`,
-        },
-        {
-          "@type": "Offer",
-          name: "Agency",
-          description: "Elementor Pro Original 10 Domain",
-          priceCurrency: "IDR",
-          price: "349000",
-          priceValidUntil: "2026-12-31",
-          availability: "https://schema.org/InStock",
-          url: `${siteConfig.url}/#harga`,
-        },
-      ],
-    },
-  };
-}
-
-export function organizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
-    description:
-      "Jasa install Elementor Pro Indonesia untuk website WordPress, landing page, toko online, dan company profile.",
-    email: siteConfig.email,
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: `+${siteConfig.whatsappNumber}`,
-      contactType: "customer service",
-      availableLanguage: "Indonesian",
-      areaServed: "ID",
-    },
-    sameAs: [],
-  };
-}
-
-export function faqSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${siteConfig.url}/#faqpage`,
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    priceRange: "Rp99.000 - Rp349.000",
   };
 }
 
@@ -187,9 +168,9 @@ export function websiteSchema() {
 export function allSchemas() {
   return [
     organizationSchema(),
-    localBusinessSchema(),
     serviceSchema(),
     faqSchema(),
+    localBusinessSchema(),
     breadcrumbSchema(),
     websiteSchema(),
   ];

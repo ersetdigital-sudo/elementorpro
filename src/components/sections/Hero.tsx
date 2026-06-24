@@ -57,10 +57,10 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Trust line — no fake numbers (trust rule) */}
+          {/* Trust line */}
           <p className="mt-8 inline-flex items-center gap-2 text-sm text-muted">
             <ShieldCheck className="h-4 w-4 text-brand" aria-hidden="true" />
-            Aktivasi aman &amp; garansi pemasangan
+            Dipercaya lebih dari 500+ website WordPress di seluruh Indonesia
           </p>
         </ScrollReveal>
       </div>
