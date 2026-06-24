@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { siteConfig, whatsappLink } from "@/lib/site";
@@ -47,10 +48,17 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-semibold tracking-tight text-text"
+          className="flex items-center"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name}
+          <Image
+            src="/logo.png"
+            alt={siteConfig.name}
+            width={140}
+            height={36}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
