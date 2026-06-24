@@ -33,18 +33,15 @@ export function Problems() {
     <section className="border-t border-white/5 bg-ink py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-text sm:text-4xl">
+          <span className="text-xs font-semibold uppercase tracking-widest text-brand">
+            Kenapa Elementor Pro
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-text sm:text-4xl">
             Kenapa Banyak Pengguna WordPress Memilih Elementor Pro?
           </h2>
           <p className="mt-4 text-muted">
-            Bagi banyak pemilik website WordPress, Elementor versi gratis
-            memang sudah cukup untuk membuat halaman sederhana. Namun saat
-            website mulai digunakan untuk bisnis, promosi, atau penjualan
-            online, kebutuhan fitur biasanya semakin berkembang.
-          </p>
-          <p className="mt-3 text-muted">
-            Karena itu, banyak pengguna beralih ke Elementor Pro untuk
-            mendapatkan fitur yang lebih lengkap dan fleksibel.
+            Elementor gratis cukup untuk halaman sederhana. Tapi untuk website
+            yang harus jualan, fitur dasar saja tidak cukup.
           </p>
         </ScrollReveal>
 
