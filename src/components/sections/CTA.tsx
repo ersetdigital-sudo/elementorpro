@@ -22,14 +22,13 @@ export function CTA() {
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <ScrollReveal>
           <h2 className="text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">
-            Siap Menginstall <GradientText>Elementor Pro</GradientText>?
+            Siap Upgrade Website dengan <GradientText>Elementor Pro</GradientText>?
           </h2>
 
           {/* Ritme satu-baris */}
           <div className="mt-6 space-y-1 text-base leading-relaxed text-muted">
-            <p>Website Anda tinggal selangkah lagi.</p>
-            <p>Pemasangan aman, cepat, dan bergaransi.</p>
-            <p>Konsultasi gratis, tanpa kewajiban.</p>
+            <p>Dapatkan layanan install Elementor Pro terpercaya untuk website bisnis, toko online, dan landing page.</p>
+            <p>Proses cepat, aman, dan bergaransi.</p>
           </div>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
