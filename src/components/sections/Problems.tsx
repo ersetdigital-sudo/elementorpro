@@ -34,10 +34,10 @@ export function Problems() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-brand">
-            Fitur Unggulan
+            Kenapa Elementor Pro
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-text sm:text-4xl">
-            Kenapa Banyak Pengguna WordPress Memilih Elementor Pro?
+            Banyak Pengguna WordPress Beralih ke Elementor Pro
           </h2>
           <p className="mt-4 text-muted">
             Elementor gratis cukup untuk halaman sederhana. Tapi untuk website
