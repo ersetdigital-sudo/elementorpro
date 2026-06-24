@@ -54,9 +54,9 @@ export function Header() {
           <Image
             src="/logo.png"
             alt={siteConfig.name}
-            width={180}
-            height={44}
-            className="h-11 w-auto"
+            width={200}
+            height={50}
+            className="h-12 w-auto"
             priority
           />
         </Link>

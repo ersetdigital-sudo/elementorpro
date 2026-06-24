@@ -70,7 +70,7 @@ export function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-6 text-center text-xs text-muted sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-6 pb-24 text-center text-xs text-muted sm:px-6 sm:pb-6 lg:px-8">
           <p>
             © 2026 Elementor Pro ID | Spesialis Jasa Install Elementor Pro untuk WordPress Indonesia | Powered by{" "}
             <a
