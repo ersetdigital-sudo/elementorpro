@@ -1,0 +1,105 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+
+/**
+ * Pusat metadata — pakai helper generateMetadata() di tiap halaman.
+ * Jangan define metadata inline di banyak file.
+ *
+ * Title:  Primary Keyword + Benefit + Brand  (max 60 char)
+ * Desc:   Keyword + Benefit + CTA           (120-155 char)
+ */
+
+const titleTemplate = `%s | ${siteConfig.name}`;
+
+const defaultTitle =
+  "Jasa Install Elementor Pro Terpercaya & Bergaransi";
+const defaultDescription =
+  "Jasa install Elementor Pro terpercaya untuk WordPress. Pengerjaan cepat, support WhatsApp, dan garansi aktif. Hubungi sekarang.";
+
+export const baseMetadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: { default: defaultTitle, template: titleTemplate },
+  description: defaultDescription,
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  keywords: [
+    "jasa install elementor pro",
+    "jasa instal elementor pro",
+    "jasa pasang elementor pro",
+    "jasa setup elementor pro",
+    "install elementor pro murah",
+    "jasa aktivasi elementor pro",
+    "setup wordpress elementor",
+    "jasa landing page elementor",
+    "jasa website elementor",
+    "jasa desain landing page wordpress",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: "Jasa Install Elementor Pro Terpercaya",
+    description:
+      "Install Elementor Pro, setup WordPress, dan landing page profesional dengan support WhatsApp.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Jasa install Elementor Pro untuk website WordPress",
+        type: "image/webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jasa Install Elementor Pro Terpercaya",
+    description:
+      "Install Elementor Pro, setup WordPress, dan landing page profesional dengan support WhatsApp.",
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "technology",
+};
+
+/** Helper untuk generate metadata per-halaman. */
+export function generateMetadata({
+  title,
+  description,
+  path = "/",
+}: {
+  title?: string;
+  description?: string;
+  path?: string;
+} = {}): Metadata {
+  return {
+    ...baseMetadata,
+    title: title ? { absolute: `${title} | ${siteConfig.name}` } : undefined,
+    description: description ?? baseMetadata.description,
+    alternates: { canonical: path },
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title: title
+        ? `${title} | ${siteConfig.name}`
+        : baseMetadata.openGraph?.title,
+      description: description ?? baseMetadata.openGraph?.description,
+      url: path,
+    },
+  };
+}
