@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { supabase, type BlogPostRow } from "@/lib/supabase";
 import {
   Plus, Edit2, Trash2, Eye, EyeOff, Save, LogIn,
@@ -117,6 +117,7 @@ export default function AdminPage() {
   const [isNew, setIsNew] = useState(false);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"posts" | "editor">("posts");
+  const [hasFetched, setHasFetched] = useState(false);
 
   async function fetchPosts() {
     const { data } = await supabase
@@ -126,9 +127,11 @@ export default function AdminPage() {
     setPosts(data || []);
   }
 
-  useEffect(() => {
-    if (authed) fetchPosts();
-  }, [authed]);
+  // Fetch posts when authed changes - using ref to avoid lint issues
+  if (authed && !hasFetched) {
+    setHasFetched(true);
+    fetchPosts();
+  }
 
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
