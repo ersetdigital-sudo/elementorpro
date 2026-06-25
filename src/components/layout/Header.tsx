@@ -11,6 +11,7 @@ const navLinks = [
   { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
   { href: "#faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
 ] as const;
 
 function MobileMenu({ onClose }: { onClose: () => void }) {

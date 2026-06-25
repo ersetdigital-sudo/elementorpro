@@ -9,12 +9,11 @@ import { Bonus } from "@/components/sections/Bonus";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
+import { LatestPosts } from "@/components/sections/LatestPosts";
 import { CTA } from "@/components/sections/CTA";
 
 /**
  * Homepage — landing page jasa install Elementor Pro.
- * Urutan:
- * Hero → Intro → Fitur → Masalahnya → SolusiCTA → HowItWorks → Pricing → Bonus → WhyChooseUs → Testimonials → FAQ → CTA
  */
 export default function Home() {
   return (
@@ -30,6 +29,7 @@ export default function Home() {
       <WhyChooseUs />
       <Testimonials />
       <FAQ />
+      <LatestPosts />
       <CTA />
     </>
   );

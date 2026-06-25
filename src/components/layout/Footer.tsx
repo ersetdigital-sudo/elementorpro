@@ -7,6 +7,7 @@ const quickLinks = [
   { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
   { href: "#faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
   { href: "/tentang-kami", label: "Tentang Kami" },
 ] as const;
 
