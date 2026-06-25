@@ -46,27 +46,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function markdownToHtml(md: string): string {
-  let html = md
-    .replace(/^### (.+)$/gm, '<h3 class="mt-8 mb-3 text-lg font-semibold text-text">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="mt-10 mb-4 text-xl font-bold text-text">$1</h2>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-text">$1</strong>')
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-muted">$1</li>')
-    .replace(
-      /\[(.+?)\]\((.+?)\)/g,
-      '<a href="$2" class="text-brand hover:brightness-125 underline">$1</a>'
-    )
-    .replace(/^(?!<[hlua])(.*\S.*)$/gm, '<p class="text-muted leading-relaxed">$1</p>');
-
-  html = html.replace(
-    /(<li[^>]*>.*?<\/li>\n?)+/g,
-    '<ul class="my-4 space-y-2">$&</ul>'
-  );
-
-  return html;
-}
-
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -104,7 +83,7 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const contentHtml = markdownToHtml(post.content);
+  const contentHtml = post.content;
 
   return (
     <>
@@ -146,7 +125,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <div
-          className="mt-10 space-y-4"
+          className="mt-10 space-y-4 text-sm leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-text [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-text [&_p]:text-muted [&_p]:leading-relaxed [&_strong]:text-text [&_a]:text-brand [&_a]:underline [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_blockquote]:border-l-2 [&_blockquote]:border-brand/50 [&_blockquote]:pl-4 [&_blockquote]:italic [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse [&_table]:rounded-xl [&_table]:overflow-hidden [&_table]:border [&_table]:border-white/10 [&_th]:border [&_th]:border-white/10 [&_th]:bg-white/5 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:text-text [&_td]:border [&_td]:border-white/10 [&_td]:px-4 [&_td]:py-3 [&_td]:text-sm [&_hr]:my-8 [&_hr]:border-white/10"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
