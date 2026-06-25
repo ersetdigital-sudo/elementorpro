@@ -13,6 +13,7 @@ export interface PricingPlan {
   cta: string;
   highlighted?: boolean;
   icon?: LucideIcon;
+  detailHref?: string;
 }
 
 export const pricingPlans: PricingPlan[] = [
@@ -28,6 +29,7 @@ export const pricingPlans: PricingPlan[] = [
       "Support WhatsApp",
     ],
     cta: "Pesan Starter",
+    detailHref: "/paket-starter",
   },
   {
     name: "Multisite",
@@ -42,6 +44,7 @@ export const pricingPlans: PricingPlan[] = [
     ],
     cta: "Pesan Multisite",
     highlighted: true,
+    detailHref: "/paket-multisite",
   },
   {
     name: "Agency",
@@ -55,6 +58,7 @@ export const pricingPlans: PricingPlan[] = [
       "Support WhatsApp Dedicated",
     ],
     cta: "Pesan Agency",
+    detailHref: "/paket-agency",
   },
 ];
 

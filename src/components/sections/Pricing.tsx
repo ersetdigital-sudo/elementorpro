@@ -1,4 +1,5 @@
 import { ArrowRight, Star } from "lucide-react";
+import Link from "next/link";
 import { pricingPlans, checkIcon } from "@/lib/data/pricing";
 import { whatsappLink } from "@/lib/site";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -86,6 +87,15 @@ export function Pricing() {
                   {plan.cta}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
+
+                {plan.detailHref && (
+                  <Link
+                    href={plan.detailHref}
+                    className="mt-3 inline-flex min-h-[44px] w-full items-center justify-center rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-muted transition hover:border-white/20 hover:text-text"
+                  >
+                    Lihat Detail
+                  </Link>
+                )}
               </ScrollReveal>
             );
           })}
