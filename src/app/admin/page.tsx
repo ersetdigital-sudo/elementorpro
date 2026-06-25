@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { supabase, type BlogPostRow } from "@/lib/supabase";
 import {
   Plus, Edit2, Trash2, Eye, EyeOff, Save, LogIn,
@@ -105,19 +105,15 @@ function RichEditor({
 
 // ─── Main Admin Page ───
 export default function AdminPage() {
-  const [authed, setAuthed] = useState(() => {
-    if (typeof window !== "undefined") {
-      return sessionStorage.getItem("admin_auth") === "true";
-    }
-    return false;
-  });
+  const [authed, setAuthed] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [password, setPassword] = useState("");
   const [posts, setPosts] = useState<BlogPostRow[]>([]);
   const [editing, setEditing] = useState<BlogPostRow | null>(null);
   const [isNew, setIsNew] = useState(false);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"posts" | "editor">("posts");
-  const [hasFetched, setHasFetched] = useState(false);
+  const fetchedRef = useRef(false);
 
   async function fetchPosts() {
     const { data } = await supabase
@@ -127,10 +123,22 @@ export default function AdminPage() {
     setPosts(data || []);
   }
 
-  // Fetch posts when authed changes - using ref to avoid lint issues
-  if (authed && !hasFetched) {
-    setHasFetched(true);
+  // Trigger fetch once after auth (ref doesn't cause re-render)
+  if (authed && !fetchedRef.current) {
+    fetchedRef.current = true;
     fetchPosts();
+  }
+
+  // Check session on mount (client-side only)
+  useEffect(() => {
+    const stored = sessionStorage.getItem("admin_auth");
+    if (stored === "true") setAuthed(true);
+    setMounted(true);
+  }, []);
+
+  // Show nothing during SSR to avoid hydration mismatch
+  if (!mounted) {
+    return <div className="flex min-h-screen items-center justify-center"><p className="text-[#666]">Loading...</p></div>;
   }
 
   function handleLogin(e: React.FormEvent) {
