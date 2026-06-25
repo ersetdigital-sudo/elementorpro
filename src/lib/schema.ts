@@ -243,7 +243,7 @@ export function aboutPageSchemas() {
           owner: { "@id": NEXAPLUS_ID },
         },
 
-        // AboutPage → mainEntity: Organization
+        // AboutPage → mainEntity: Brand (Elementor Pro ID)
         {
           "@type": "AboutPage",
           "@id": `${siteConfig.url}/#about`,
@@ -255,7 +255,7 @@ export function aboutPageSchemas() {
           isPartOf: { "@id": WEBSITE_ID },
           publisher: { "@id": NEXAPLUS_ID },
           about: { "@id": BRAND_ID },
-          mainEntity: { "@id": NEXAPLUS_ID },
+          mainEntity: { "@id": BRAND_ID },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
