@@ -24,6 +24,9 @@ export const baseMetadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  verification: {
+    google: "jbiszvPIv_WYxLUeUQtOo9SS_FwNu1nEMH7Tp3WLhtE",
+  },
   alternates: {
     canonical: "/",
   },
