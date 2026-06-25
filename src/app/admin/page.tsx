@@ -125,7 +125,7 @@ function RichEditor({
               Hapus
             </button>
           </>
-        )
+        )}
       </div>
       {/* Editor content */}
       <EditorContent editor={editor} />
