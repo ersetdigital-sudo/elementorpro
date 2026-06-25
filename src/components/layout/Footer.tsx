@@ -4,7 +4,6 @@ import { emailLink, siteConfig, whatsappLink } from "@/lib/site";
 
 const quickLinks = [
   { href: "/", label: "Beranda" },
-  { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
   { href: "#faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },

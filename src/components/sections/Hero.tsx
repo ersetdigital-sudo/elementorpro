@@ -50,10 +50,10 @@ export function Hero() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="#layanan"
+              href="#harga"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3 font-medium text-text transition hover:bg-surface-2 sm:w-auto"
             >
-              Lihat Layanan
+              Lihat Harga
             </a>
           </div>
 

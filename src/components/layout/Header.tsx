@@ -9,7 +9,6 @@ import { whatsappLink } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Beranda" },
-  { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
   { href: "#faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
