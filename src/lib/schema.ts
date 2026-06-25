@@ -2,16 +2,17 @@ import { siteConfig } from "@/lib/site";
 import { faq } from "@/lib/data/faq";
 
 /**
- * JSON-LD Schema — Unified @graph structure.
+ * JSON-LD Schema — Unified @graph structure (Entity SEO optimized).
  *
  * Entity hierarchy:
- * - NexaPlus (Organization, parent) → https://nexaplus.web.id/#organization
- * - Elementor Pro ID (Brand)        → https://jasaelementorpro.web.id/#brand
- * - WebSite                         → https://jasaelementorpro.web.id/#website
- * - WebPage (homepage)              → https://jasaelementorpro.web.id/#webpage
- * - Service                         → https://jasaelementorpro.web.id/#service
- * - BreadcrumbList                  → https://jasaelementorpro.web.id/#breadcrumb
- * - FAQPage                         → https://jasaelementorpro.web.id/#faqpage
+ * - NexaPlus (Organization, parent/owner) → https://nexaplus.web.id/#organization
+ * - Elementor Pro ID (Brand, owned by NexaPlus) → https://jasaelementorpro.web.id/#brand
+ * - WebSite (publisher: NexaPlus) → https://jasaelementorpro.web.id/#website
+ * - WebPage (mainEntity: Service) → https://jasaelementorpro.web.id/#webpage
+ * - Service (provider: NexaPlus, brand: Elementor Pro ID) → https://jasaelementorpro.web.id/#service
+ * - FAQPage → https://jasaelementorpro.web.id/#faqpage
+ * - BreadcrumbList → https://jasaelementorpro.web.id/#breadcrumb
+ * - ImageObject (logo, shared) → https://jasaelementorpro.web.id/#logo
  */
 
 const NEXAPLUS_ID = "https://nexaplus.web.id/#organization";
@@ -31,22 +32,30 @@ export function allSchemas() {
     {
       "@context": "https://schema.org",
       "@graph": [
-        // 1. NexaPlus — Parent Organization
+        // 1. NexaPlus — Parent Organization (owner of Brand)
         {
           "@type": "Organization",
           "@id": NEXAPLUS_ID,
           name: "NexaPlus",
           url: "https://nexaplus.web.id",
           description:
-            "Agensi digital yang berfokus pada pengembangan website, WordPress, landing page, dan solusi digital untuk bisnis.",
+            "Agensi digital yang berfokus pada pengembangan website, WordPress, landing page, dan solusi digital untuk bisnis di Indonesia.",
+          logo: { "@id": LOGO_ID },
           sameAs: [
             "https://www.instagram.com/nexaplus.id/",
             "https://www.tiktok.com/@nexaplus.id",
             "https://nexaplus.web.id/",
           ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+62-815-7305-9442",
+            contactType: "customer support",
+            availableLanguage: "Indonesian",
+            areaServed: "ID",
+          },
         },
 
-        // 2. Elementor Pro ID — Brand (sub-entity of NexaPlus)
+        // 2. Elementor Pro ID — Brand (owned by NexaPlus, NOT a separate Organization)
         {
           "@type": "Brand",
           "@id": BRAND_ID,
@@ -55,7 +64,7 @@ export function allSchemas() {
           description:
             "Layanan spesialis jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
           logo: { "@id": LOGO_ID },
-          parentOrganization: { "@id": NEXAPLUS_ID },
+          owner: { "@id": NEXAPLUS_ID },
           sameAs: [
             "https://www.instagram.com/nexaplus.id/",
             "https://www.tiktok.com/@nexaplus.id",
@@ -63,17 +72,20 @@ export function allSchemas() {
           ],
         },
 
-        // 3. Logo as ImageObject
+        // 3. Logo — single ImageObject shared by Organization & Brand
         {
           "@type": "ImageObject",
           "@id": LOGO_ID,
           url: `${siteConfig.url}/logo.png`,
           contentUrl: `${siteConfig.url}/logo.png`,
-          caption: "Logo Elementor Pro ID - Jasa Install Elementor Pro Indonesia",
+          width: "512",
+          height: "512",
+          caption:
+            "Logo Elementor Pro ID - Jasa Install Elementor Pro Indonesia",
           inLanguage: "id",
         },
 
-        // 4. WebSite
+        // 4. WebSite (publisher: NexaPlus)
         {
           "@type": "WebSite",
           "@id": WEBSITE_ID,
@@ -85,7 +97,7 @@ export function allSchemas() {
           about: { "@id": SERVICE_ID },
         },
 
-        // 5. WebPage (homepage)
+        // 5. WebPage — homepage (mainEntity: Service)
         {
           "@type": "WebPage",
           "@id": WEBPAGE_ID,
@@ -95,7 +107,7 @@ export function allSchemas() {
             "Jasa install Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.",
           inLanguage: "id",
           isPartOf: { "@id": WEBSITE_ID },
-          about: { "@id": SERVICE_ID },
+          mainEntity: { "@id": SERVICE_ID },
           breadcrumb: { "@id": BREADCRUMB_ID },
           publisher: { "@id": NEXAPLUS_ID },
         },
@@ -132,7 +144,7 @@ export function allSchemas() {
           offers: [
             {
               "@type": "Offer",
-              name: "Paket Starter — 1 Domain",
+              name: "Paket Starter \u2014 1 Domain",
               description:
                 "Elementor Pro Original 1 domain, auto update, garansi aktivasi 30 hari, support WhatsApp.",
               price: "99000",
@@ -143,7 +155,7 @@ export function allSchemas() {
             },
             {
               "@type": "Offer",
-              name: "Paket Multisite — 3 Domain",
+              name: "Paket Multisite \u2014 3 Domain",
               description:
                 "Elementor Pro Original 3 domain, auto update, garansi aktivasi 30 hari, prioritas support WhatsApp.",
               price: "149000",
@@ -154,7 +166,7 @@ export function allSchemas() {
             },
             {
               "@type": "Offer",
-              name: "Paket Agency — 10 Domain",
+              name: "Paket Agency \u2014 10 Domain",
               description:
                 "Elementor Pro Original 10 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
               price: "349000",
@@ -180,10 +192,11 @@ export function allSchemas() {
           ],
         },
 
-        // 8. FAQPage
+        // 8. FAQPage (isPartOf: WebPage)
         {
           "@type": "FAQPage",
           "@id": FAQPAGE_ID,
+          isPartOf: { "@id": WEBPAGE_ID },
           mainEntity: faq.map((item) => ({
             "@type": "Question",
             name: item.question,
@@ -192,7 +205,6 @@ export function allSchemas() {
               text: item.answer,
             },
           })),
-          isPartOf: { "@id": WEBPAGE_ID },
         },
       ],
     },
@@ -201,18 +213,20 @@ export function allSchemas() {
 
 /**
  * Tentang Kami page @graph — used in /tentang-kami
+ * AboutPage.mainEntity → Organization (NexaPlus) karena halaman ini membahas entitas bisnis.
  */
 export function aboutPageSchemas() {
   return [
     {
       "@context": "https://schema.org",
       "@graph": [
-        // Reference parent org
+        // Organization reference
         {
           "@type": "Organization",
           "@id": NEXAPLUS_ID,
           name: "NexaPlus",
           url: "https://nexaplus.web.id",
+          logo: { "@id": LOGO_ID },
           sameAs: [
             "https://www.instagram.com/nexaplus.id/",
             "https://www.tiktok.com/@nexaplus.id",
@@ -220,7 +234,16 @@ export function aboutPageSchemas() {
           ],
         },
 
-        // AboutPage
+        // Brand reference
+        {
+          "@type": "Brand",
+          "@id": BRAND_ID,
+          name: "Elementor Pro ID",
+          url: siteConfig.url,
+          owner: { "@id": NEXAPLUS_ID },
+        },
+
+        // AboutPage → mainEntity: Organization
         {
           "@type": "AboutPage",
           "@id": `${siteConfig.url}/#about`,
@@ -232,7 +255,7 @@ export function aboutPageSchemas() {
           isPartOf: { "@id": WEBSITE_ID },
           publisher: { "@id": NEXAPLUS_ID },
           about: { "@id": BRAND_ID },
-          mainEntity: { "@id": SERVICE_ID },
+          mainEntity: { "@id": NEXAPLUS_ID },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
@@ -252,15 +275,6 @@ export function aboutPageSchemas() {
           },
         },
 
-        // Brand reference
-        {
-          "@type": "Brand",
-          "@id": BRAND_ID,
-          name: "Elementor Pro ID",
-          url: siteConfig.url,
-          parentOrganization: { "@id": NEXAPLUS_ID },
-        },
-
         // Service reference
         {
           "@type": "Service",
@@ -268,6 +282,14 @@ export function aboutPageSchemas() {
           name: "Jasa Install Elementor Pro Original",
           provider: { "@id": NEXAPLUS_ID },
           brand: { "@id": BRAND_ID },
+        },
+
+        // Logo reference
+        {
+          "@type": "ImageObject",
+          "@id": LOGO_ID,
+          url: `${siteConfig.url}/logo.png`,
+          contentUrl: `${siteConfig.url}/logo.png`,
         },
       ],
     },
