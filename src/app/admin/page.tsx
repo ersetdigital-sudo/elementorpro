@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { supabase, type BlogPostRow } from "@/lib/supabase";
 import {
   Plus, Edit2, Trash2, Eye, EyeOff, Save, LogIn,
@@ -113,7 +113,6 @@ export default function AdminPage() {
   const [isNew, setIsNew] = useState(false);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"posts" | "editor">("posts");
-  const fetchedRef = useRef(false);
 
   async function fetchPosts() {
     const { data } = await supabase
@@ -123,20 +122,15 @@ export default function AdminPage() {
     setPosts(data || []);
   }
 
-  // Trigger fetch once after auth (ref doesn't cause re-render)
-  if (authed && !fetchedRef.current) {
-    fetchedRef.current = true;
-    fetchPosts();
-  }
-
-  // Check session on mount (client-side only)
   useEffect(() => {
     const stored = sessionStorage.getItem("admin_auth");
-    if (stored === "true") setAuthed(true);
+    if (stored === "true") {
+      setAuthed(true);
+      fetchPosts();
+    }
     setMounted(true);
   }, []);
 
-  // Show nothing during SSR to avoid hydration mismatch
   if (!mounted) {
     return <div className="flex min-h-screen items-center justify-center"><p className="text-[#666]">Loading...</p></div>;
   }
