@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Shield, Zap, HeadphonesIcon, Users, Building2 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { aboutPageSchemas } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Tentang Kami — Elementor Pro ID | Layanan Spesialis NexaPlus",
@@ -11,64 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function TentangKamiPage() {
-  const jsonLd = [
-    // AboutPage schema with entity linking
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      name: "Tentang Elementor Pro ID",
-      description:
-        "Elementor Pro ID adalah layanan spesialis lisensi Elementor Pro original dan dukungan teknis WordPress terpercaya di Indonesia.",
-      url: `${siteConfig.url}/tentang-kami`,
-      publisher: {
-        "@type": "Organization",
-        name: "NexaPlus",
-        url: "https://nexaplus.web.id",
-      },
-      isPartOf: {
-        "@type": "WebSite",
-        name: "NexaPlus",
-        url: "https://nexaplus.web.id",
-      },
-      mainEntity: {
-        "@type": "Service",
-        name: "Jasa Install Elementor Pro Original",
-        provider: {
-          "@type": "Organization",
-          name: "Elementor Pro ID",
-          url: `${siteConfig.url}/`,
-          parentOrganization: {
-            "@type": "Organization",
-            name: "NexaPlus",
-            url: "https://nexaplus.web.id",
-          },
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "Indonesia",
-        },
-      },
-    },
-    // BreadcrumbList
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Beranda",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Tentang Kami",
-          item: `${siteConfig.url}/tentang-kami`,
-        },
-      ],
-    },
-  ];
+  const jsonLd = aboutPageSchemas();
 
   return (
     <>
