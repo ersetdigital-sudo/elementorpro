@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-export const revalidate = 60; // ISR: revalidate every 60 seconds
+export const revalidate = 0; // Always fetch fresh data from Supabase
+export const dynamic = "force-dynamic";
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
