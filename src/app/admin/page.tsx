@@ -12,6 +12,10 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import LinkExtension from "@tiptap/extension-link";
 import UnderlineExtension from "@tiptap/extension-underline";
+import Table from "@tiptap/extension-table";
+import TableRow from "@tiptap/extension-table-row";
+import TableHeader from "@tiptap/extension-table-header";
+import TableCell from "@tiptap/extension-table-cell";
 
 const ADMIN_PASSWORD = "elementorpro2026";
 
@@ -30,6 +34,10 @@ function RichEditor({
       }),
       LinkExtension.configure({ openOnClick: false }),
       UnderlineExtension,
+      Table.configure({ resizable: true }),
+      TableRow,
+      TableHeader,
+      TableCell,
     ],
     content,
     onUpdate: ({ editor }) => {
@@ -38,7 +46,7 @@ function RichEditor({
     editorProps: {
       attributes: {
         class:
-          "min-h-[300px] px-4 py-3 text-white text-sm leading-relaxed focus:outline-none prose prose-invert prose-sm max-w-none",
+          "min-h-[300px] px-4 py-3 text-white text-sm leading-relaxed focus:outline-none prose prose-invert prose-sm max-w-none [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-white/20 [&_th]:bg-white/5 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold [&_td]:border [&_td]:border-white/10 [&_td]:px-3 [&_td]:py-2",
       },
     },
   });
@@ -96,6 +104,28 @@ function RichEditor({
         <button type="button" onClick={() => editor.chain().focus().setHorizontalRule().run()} className="rounded-lg p-2 text-[#666] hover:bg-white/5 hover:text-white transition">
           <Minus className="h-4 w-4" />
         </button>
+        <span className="mx-1 h-5 w-px bg-white/10" />
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+          className="rounded-lg px-2 py-1 text-xs text-[#666] hover:bg-white/5 hover:text-white transition"
+          title="Sisipkan Tabel"
+        >
+          Tabel
+        </button>
+        {editor.isActive("table") && (
+          <>
+            <button type="button" onClick={() => editor.chain().focus().addColumnAfter().run()} className="rounded-lg px-2 py-1 text-xs text-[#666] hover:bg-white/5 hover:text-white transition" title="Tambah Kolom">
+              +Kolom
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().addRowAfter().run()} className="rounded-lg px-2 py-1 text-xs text-[#666] hover:bg-white/5 hover:text-white transition" title="Tambah Baris">
+              +Baris
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().deleteTable().run()} className="rounded-lg px-2 py-1 text-xs text-red-400 hover:bg-red-500/10 transition" title="Hapus Tabel">
+              Hapus
+            </button>
+          </>
+        )
       </div>
       {/* Editor content */}
       <EditorContent editor={editor} />
