@@ -7,17 +7,17 @@ import { Plus, Edit2, Trash2, Eye, EyeOff, Save, X, LogIn } from "lucide-react";
 const ADMIN_PASSWORD = "elementorpro2026";
 
 export default function AdminPage() {
-  const [authed, setAuthed] = useState(false);
+  const [authed, setAuthed] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("admin_auth") === "true";
+    }
+    return false;
+  });
   const [password, setPassword] = useState("");
   const [posts, setPosts] = useState<BlogPostRow[]>([]);
   const [editing, setEditing] = useState<BlogPostRow | null>(null);
   const [isNew, setIsNew] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const stored = sessionStorage.getItem("admin_auth");
-    if (stored === "true") setAuthed(true);
-  }, []);
 
   useEffect(() => {
     if (authed) fetchPosts();

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { siteConfig, whatsappLink } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 const navLinks = [
   { href: "#layanan", label: "Layanan" },

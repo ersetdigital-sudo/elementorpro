@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Shield, Zap, HeadphonesIcon, Users, Building2 } from "lucide-react";
-import { siteConfig } from "@/lib/site";
 import { aboutPageSchemas } from "@/lib/schema";
 
 export const metadata: Metadata = {

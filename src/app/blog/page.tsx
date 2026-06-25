@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
 
@@ -45,9 +46,11 @@ export default async function BlogPage() {
             >
               {post.featuredImage && (
                 <div className="mb-4 aspect-video overflow-hidden rounded-xl bg-surface-2">
-                  <img
+                  <Image
                     src={post.featuredImage}
                     alt={post.title}
+                    width={600}
+                    height={340}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
