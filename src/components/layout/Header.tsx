@@ -31,7 +31,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         zIndex: 9999,
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#000000",
+        backgroundColor: "#0a0a0a",
       }}
     >
       {/* Header row */}
@@ -41,8 +41,8 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           alignItems: "center",
           justifyContent: "space-between",
           height: "64px",
-          padding: "0 16px",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
+          padding: "0 20px",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <Link href="/" onClick={onClose}>
@@ -65,13 +65,13 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             width: "44px",
             height: "44px",
             borderRadius: "12px",
-            border: "none",
-            backgroundColor: "transparent",
+            border: "1px solid rgba(255,255,255,0.1)",
+            backgroundColor: "rgba(255,255,255,0.05)",
             color: "#ffffff",
             cursor: "pointer",
           }}
         >
-          <X size={24} />
+          <X size={20} />
         </button>
       </div>
 
@@ -81,10 +81,9 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
-          gap: "8px",
-          padding: "24px",
+          gap: "4px",
+          padding: "32px 20px",
         }}
       >
         {navLinks.map((link) => (
@@ -93,14 +92,18 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             href={link.href}
             onClick={onClose}
             style={{
-              width: "100%",
-              padding: "16px",
-              textAlign: "center",
-              fontSize: "18px",
-              fontWeight: 500,
+              display: "flex",
+              alignItems: "center",
+              padding: "18px 20px",
+              fontSize: "20px",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
               color: "#ffffff",
               textDecoration: "none",
-              borderRadius: "12px",
+              borderRadius: "16px",
+              border: "1px solid rgba(255,255,255,0.06)",
+              backgroundColor: "rgba(255,255,255,0.03)",
+              transition: "background-color 0.2s",
             }}
           >
             {link.label}
@@ -111,8 +114,8 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       {/* CTA */}
       <div
         style={{
-          padding: "24px",
-          borderTop: "1px solid rgba(255,255,255,0.1)",
+          padding: "20px",
+          paddingBottom: "32px",
         }}
       >
         <a
@@ -124,19 +127,31 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            gap: "8px",
             width: "100%",
-            minHeight: "48px",
-            padding: "14px 24px",
+            minHeight: "52px",
+            padding: "16px 24px",
             borderRadius: "9999px",
             backgroundColor: "#c5f518",
             color: "#000000",
-            fontSize: "14px",
+            fontSize: "15px",
             fontWeight: 600,
             textDecoration: "none",
+            boxShadow: "0 0 20px rgba(197,245,24,0.2)",
           }}
         >
           Hubungi via WhatsApp
         </a>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "12px",
+            color: "rgba(255,255,255,0.4)",
+            marginTop: "12px",
+          }}
+        >
+          Konsultasi gratis, tanpa kewajiban
+        </p>
       </div>
     </div>,
     document.body
