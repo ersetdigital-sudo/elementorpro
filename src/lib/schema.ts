@@ -39,7 +39,7 @@ export function allSchemas() {
           name: "NexaPlus",
           url: "https://nexaplus.web.id",
           description:
-            "Agensi digital yang berfokus pada pengembangan website, WordPress, landing page, dan solusi digital untuk bisnis di Indonesia.",
+            "Agensi digital yang berfokus pada pengembangan website, WordPress, landing page, dan solusi digital untuk bisnis di Indonesia. NexaPlus juga mengelola unit layanan spesialis Elementor Pro ID.",
           logo: { "@id": LOGO_ID },
           sameAs: [
             "https://www.instagram.com/nexaplus.id/",
