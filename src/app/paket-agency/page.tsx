@@ -148,7 +148,7 @@ export default function PaketAgencyPage() {
             href={whatsappLink("Halo, saya mau pesan Paket Agency.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-brand px-8 py-3.5 font-semibold text-brand-foreground transition hover:scale-105 hover:shadow-lg hover:shadow-brand/30 hover:brightness-110"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-brand px-8 py-3.5 font-semibold text-brand-foreground transition hover:scale-105 hover:shadow-lg hover:shadow-brand/30 hover:brightness-110 sm:w-auto"
           >
             Pesan Paket Agency via WhatsApp
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

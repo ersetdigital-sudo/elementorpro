@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import { whatsappLink } from "@/lib/site";
 
 const navLinks = [
+  { href: "/", label: "Beranda" },
   { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
   { href: "#faq", label: "FAQ" },
