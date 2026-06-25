@@ -9,14 +9,16 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -49,28 +51,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/**
- * Simple markdown to HTML converter (handles headings, paragraphs, bold, italic, lists, links).
- */
 function markdownToHtml(md: string): string {
   let html = md
-    // Headings
     .replace(/^### (.+)$/gm, '<h3 class="mt-8 mb-3 text-lg font-semibold text-text">$1</h3>')
     .replace(/^## (.+)$/gm, '<h2 class="mt-10 mb-4 text-xl font-bold text-text">$1</h2>')
-    // Bold & italic
     .replace(/\*\*(.+?)\*\*/g, '<strong class="text-text">$1</strong>')
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Unordered list items
     .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-muted">$1</li>')
-    // Links
     .replace(
       /\[(.+?)\]\((.+?)\)/g,
       '<a href="$2" class="text-brand hover:brightness-125 underline">$1</a>'
     )
-    // Paragraphs (lines that aren't already HTML)
     .replace(/^(?!<[hlua])(.*\S.*)$/gm, '<p class="text-muted leading-relaxed">$1</p>');
 
-  // Wrap consecutive <li> in <ul>
   html = html.replace(
     /(<li[^>]*>.*?<\/li>\n?)+/g,
     '<ul class="my-4 space-y-2">$&</ul>'
@@ -81,7 +74,7 @@ function markdownToHtml(md: string): string {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
   const jsonLd = {
@@ -126,7 +119,6 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-        {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
           <Link href="/" className="hover:text-text">Beranda</Link>
           <span className="mx-2">/</span>
@@ -135,7 +127,6 @@ export default async function BlogPostPage({ params }: Props) {
           <span className="text-text line-clamp-1">{post.title}</span>
         </nav>
 
-        {/* Category + Meta */}
         <span className="inline-block rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
           {post.category}
         </span>
@@ -159,13 +150,11 @@ export default async function BlogPostPage({ params }: Props) {
           </span>
         </div>
 
-        {/* Content */}
         <div
-          className="prose-custom mt-10 space-y-4"
+          className="mt-10 space-y-4"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
-        {/* Back link */}
         <div className="mt-14 border-t border-white/10 pt-8">
           <Link
             href="/blog"

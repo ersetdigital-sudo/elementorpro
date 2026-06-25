@@ -1,8 +1,4 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-
-const POSTS_DIR = path.join(process.cwd(), "content/blog");
+import { supabase, type BlogPostRow } from "@/lib/supabase";
 
 export interface BlogPost {
   slug: string;
@@ -15,56 +11,79 @@ export interface BlogPost {
   readingTime: number;
 }
 
-/**
- * Calculate estimated reading time (words per minute = 200 for Indonesian text).
- */
 function calculateReadingTime(content: string): number {
   const words = content.trim().split(/\s+/).length;
   return Math.max(1, Math.ceil(words / 200));
 }
 
-/**
- * Get all blog posts sorted by date (newest first).
- */
-export function getAllPosts(): BlogPost[] {
-  if (!fs.existsSync(POSTS_DIR)) return [];
-
-  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace(/\.md$/, "");
-    const filePath = path.join(POSTS_DIR, filename);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(fileContent);
-
-    return {
-      slug,
-      title: data.title || "",
-      description: data.description || "",
-      category: data.category || "Umum",
-      featuredImage: data.featuredImage || "",
-      date: data.date || "",
-      content,
-      readingTime: calculateReadingTime(content),
-    } satisfies BlogPost;
-  });
-
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+function rowToPost(row: BlogPostRow): BlogPost {
+  return {
+    slug: row.slug,
+    title: row.title,
+    description: row.description,
+    category: row.category,
+    featuredImage: row.featured_image,
+    date: row.created_at,
+    content: row.content,
+    readingTime: calculateReadingTime(row.content),
+  };
 }
 
 /**
- * Get a single post by slug.
+ * Get all published blog posts sorted by date (newest first).
  */
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  const posts = getAllPosts();
-  return posts.find((p) => p.slug === slug);
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
+
+  if (error || !data) return [];
+  return data.map(rowToPost);
 }
 
 /**
- * Get latest N posts.
+ * Get a single post by slug (published only).
  */
-export function getLatestPosts(count: number = 3): BlogPost[] {
-  return getAllPosts().slice(0, count);
+export async function getPostBySlug(
+  slug: string
+): Promise<BlogPost | undefined> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("slug", slug)
+    .eq("published", true)
+    .single();
+
+  if (error || !data) return undefined;
+  return rowToPost(data);
+}
+
+/**
+ * Get latest N published posts.
+ */
+export async function getLatestPosts(count: number = 3): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("published", true)
+    .order("created_at", { ascending: false })
+    .limit(count);
+
+  if (error || !data) return [];
+  return data.map(rowToPost);
+}
+
+/**
+ * Get ALL posts (including drafts) — for admin panel.
+ */
+export async function getAllPostsAdmin(): Promise<BlogPostRow[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error || !data) return [];
+  return data;
 }

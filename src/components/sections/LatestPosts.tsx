@@ -6,8 +6,8 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 /**
  * LatestPosts — shows 3 latest blog posts on the homepage.
  */
-export function LatestPosts() {
-  const posts = getLatestPosts(3);
+export async function LatestPosts() {
+  const posts = await getLatestPosts(3);
 
   if (posts.length === 0) return null;
 
