@@ -12,7 +12,7 @@ export const faq: FaqItem[] = [
   {
     question: "Berapa harga jasa install Elementor Pro?",
     answer:
-      "Harga jasa install Elementor Pro mulai dari Rp99.000 per tahun untuk paket Starter (1 domain), Rp149.000 untuk paket Multisite (3 domain), dan Rp349.000 untuk paket Agency (10 domain). Semua paket sudah termasuk Elementor Pro original dengan garansi aktivasi 30 hari.",
+      "Harga jasa install Elementor Pro: Rp99.000/tahun (1 domain), Rp149.000/tahun (3 domain), Rp349.000/tahun (10 domain). Semua paket sudah termasuk Elementor Pro original berlisensi resmi, auto update via dashboard, garansi aktivasi 30 hari, dan bonus Essential Addons Pro gratis.",
   },
   {
     question: "Berapa lama proses pengerjaan?",

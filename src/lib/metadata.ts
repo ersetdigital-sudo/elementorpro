@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/site";
 const titleTemplate = `%s | ${siteConfig.name}`;
 
 const defaultTitle =
-  "Jasa Install Elementor Pro Terpercaya & Bergaransi";
+  "Jasa Install Elementor Pro Terpercaya & Bergaransi | Elementor Pro ID";
 const defaultDescription =
-  "Jasa install Elementor Pro terpercaya untuk WordPress. Pengerjaan cepat, support WhatsApp, dan garansi aktif. Hubungi sekarang.";
+  "Jasa install Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -40,7 +40,7 @@ export const baseMetadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Jasa install Elementor Pro untuk website WordPress",
+        alt: "Jasa Install Elementor Pro Original untuk Website WordPress Indonesia",
         type: "image/webp",
       },
     ],

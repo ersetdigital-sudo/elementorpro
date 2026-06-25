@@ -13,11 +13,18 @@ export function organizationSchema() {
     name: "Elementor Pro ID",
     url: `${siteConfig.url}/`,
     logo: `${siteConfig.url}/logo.png`,
+    description:
+      "Jasa Install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+62-815-7305-9442",
       contactType: "customer support",
       availableLanguage: "Indonesian",
+    },
+    parentOrganization: {
+      "@type": "Organization",
+      name: "NexaPlus",
+      url: "https://nexaplus.web.id",
     },
   };
 }
@@ -28,7 +35,7 @@ export function serviceSchema() {
     "@type": "Service",
     name: "Jasa Install Elementor Pro Original",
     description:
-      "Jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari.",
+      "Jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari, gratis bonus Essential Addons Pro.",
     provider: {
       "@type": "Organization",
       name: "Elementor Pro ID",
@@ -37,6 +44,12 @@ export function serviceSchema() {
     areaServed: {
       "@type": "Country",
       name: "Indonesia",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      ratingCount: "512",
     },
     offers: [
       {

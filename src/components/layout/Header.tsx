@@ -48,7 +48,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link href="/" onClick={onClose}>
           <Image
             src="/logo.png"
-            alt={siteConfig.name}
+            alt="Layanan Jasa Install Elementor Pro Indonesia"
             width={200}
             height={50}
             style={{ height: "48px", width: "auto" }}
@@ -186,7 +186,7 @@ export function Header() {
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
-              alt={siteConfig.name}
+              alt="Jasa Install Elementor Pro Indonesia - Elementor Pro ID"
               width={200}
               height={50}
               className="h-12 w-auto"
