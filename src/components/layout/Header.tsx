@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +16,6 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Lock scroll saat drawer terbuka
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -25,7 +23,6 @@ export function Header() {
     };
   }, [open]);
 
-  // Deteksi scroll buat background header
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -48,7 +45,7 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center"
+          className="relative z-[70] flex items-center"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -91,8 +88,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Tutup menu" : "Buka menu"}
           aria-expanded={open}
-          aria-controls="mobile-drawer"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-text transition hover:bg-surface-2 md:hidden"
+          className="relative z-[70] inline-flex h-11 w-11 items-center justify-center rounded-xl text-text transition hover:bg-white/10 md:hidden"
         >
           {open ? (
             <X className="h-6 w-6" aria-hidden="true" />
@@ -102,73 +98,43 @@ export function Header() {
         </button>
       </nav>
 
-      {/* Mobile drawer + overlay */}
-      <AnimatePresence>
-        {open && (
-          <>
-            {/* Backdrop overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm md:hidden"
+      {/* Full-screen mobile menu */}
+      {open && (
+        <div
+          className="fixed inset-0 z-[60] flex flex-col md:hidden"
+          style={{ backgroundColor: "#000000" }}
+        >
+          {/* Spacer for header height */}
+          <div className="h-16 shrink-0" />
+
+          {/* Nav links */}
+          <div className="flex flex-1 flex-col items-center justify-center gap-2 px-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="w-full rounded-xl py-4 text-center text-lg font-medium text-white transition hover:bg-white/5"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA button at bottom */}
+          <div className="shrink-0 border-t border-white/10 p-6">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              aria-hidden="true"
-            />
-
-            {/* Drawer */}
-            <motion.div
-              id="mobile-drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-              className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-[300px] flex-col border-l border-white/10 bg-[#000000] md:hidden"
+              className="flex min-h-[48px] w-full items-center justify-center rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-black transition hover:brightness-110"
             >
-              {/* Drawer header */}
-              <div className="flex h-16 items-center justify-between border-b border-white/10 px-5">
-                <span className="text-sm font-medium text-muted">Menu</span>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Tutup menu"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-text transition hover:bg-surface-2"
-                >
-                  <X className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-
-              {/* Nav links */}
-              <div className="flex flex-1 flex-col gap-1 p-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-xl px-4 py-3.5 text-base font-medium text-text transition hover:bg-surface-2"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* CTA button */}
-              <div className="border-t border-white/10 p-4">
-                <a
-                  href={whatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition hover:brightness-110"
-                >
-                  Hubungi via WhatsApp
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              Hubungi via WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
