@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { supabase, type BlogPostRow } from "@/lib/supabase";
 import {
-  Plus, Edit2, Trash2, Eye, EyeOff, Save, X, LogIn,
+  Plus, Edit2, Trash2, Eye, EyeOff, Save, LogIn,
   LayoutDashboard, FileText, ArrowLeft, Search,
   Bold, Italic, Underline, Heading2, Heading3,
   List, ListOrdered, Link2, Quote, Minus,
@@ -118,17 +118,17 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"posts" | "editor">("posts");
 
-  useEffect(() => {
-    if (authed) fetchPosts();
-  }, [authed]);
-
-  const fetchPosts = useCallback(async () => {
+  async function fetchPosts() {
     const { data } = await supabase
       .from("posts")
       .select("*")
       .order("created_at", { ascending: false });
     setPosts(data || []);
-  }, []);
+  }
+
+  useEffect(() => {
+    if (authed) fetchPosts();
+  }, [authed]);
 
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
