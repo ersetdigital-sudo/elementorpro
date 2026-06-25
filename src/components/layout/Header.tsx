@@ -112,7 +112,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setOpen(false)}
               aria-hidden="true"
             />
@@ -124,7 +124,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-[300px] flex-col border-l border-white/10 bg-ink md:hidden"
+              className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-[300px] flex-col border-l border-white/10 bg-[#000000] md:hidden"
             >
               {/* Drawer header */}
               <div className="flex h-16 items-center justify-between border-b border-white/10 px-5">
