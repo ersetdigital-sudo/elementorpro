@@ -1,21 +1,38 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    // Hide main site elements when admin is mounted
+    const header = document.querySelector("body > header");
+    const footer = document.querySelector("body > footer");
+    const main = document.querySelector("body > main");
+    const wa = document.querySelector("[aria-label='Hubungi via WhatsApp']");
+
+    if (header) (header as HTMLElement).style.display = "none";
+    if (footer) (footer as HTMLElement).style.display = "none";
+    if (wa) (wa as HTMLElement).style.display = "none";
+    if (main) {
+      (main as HTMLElement).style.flex = "1";
+      (main as HTMLElement).style.display = "block";
+    }
+
+    return () => {
+      if (header) (header as HTMLElement).style.display = "";
+      if (footer) (footer as HTMLElement).style.display = "";
+      if (wa) (wa as HTMLElement).style.display = "";
+      if (main) (main as HTMLElement).style.flex = "";
+    };
+  }, []);
+
   return (
-    <>
-      {/* Hide main site header, footer, and floating WA button */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            body > header, body > footer, body > a[aria-label="Hubungi via WhatsApp"], body > main { display: none !important; }
-          `,
-        }}
-      />
-      <div className="fixed inset-0 z-[9999] overflow-auto bg-[#080b12] text-white">
-        {children}
-      </div>
-    </>
+    <div className="min-h-screen bg-[#080b12] text-white">
+      {children}
+    </div>
   );
 }
