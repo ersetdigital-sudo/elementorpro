@@ -25,14 +25,14 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "GoogleOther",
         allow: "/",
       },
-      // Bot pelatihan data — DIBLOKIR
+      // Bot pelatihan data — DIBUKA untuk citation visibility
       {
         userAgent: "GPTBot",
-        disallow: "/",
+        allow: "/",
       },
       {
         userAgent: "ClaudeBot",
-        disallow: "/",
+        allow: "/",
       },
       {
         userAgent: "Google-Extended",

@@ -60,7 +60,13 @@ export function Hero() {
           {/* Trust line */}
           <p className="mt-8 inline-flex items-center gap-2 text-sm text-muted">
             <ShieldCheck className="h-4 w-4 text-brand" aria-hidden="true" />
-            Dipercaya lebih dari 6.000+ pelanggan di seluruh Indonesia
+            Dipercaya lebih dari 6.000+ pelanggan di seluruh Indonesia sejak
+            2023
+          </p>
+
+          {/* Last updated — GEO signal for freshness */}
+          <p className="mt-3 text-xs text-muted/70">
+            Terakhir diperbarui: Juni 2026
           </p>
         </ScrollReveal>
       </div>

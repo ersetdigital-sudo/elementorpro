@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site";
 const titleTemplate = `%s | ${siteConfig.name}`;
 
 const defaultTitle =
-  "Jasa Install Elementor Pro Terpercaya & Bergaransi | Elementor Pro ID";
+  "Jasa Install Elementor Pro Bergaransi | Elementor Pro ID";
 const defaultDescription =
   "Jasa install Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.";
 
@@ -25,7 +25,10 @@ export const baseMetadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   verification: {
-    google: "jbiszvPIv_WYxLUeUQtOo9SS_FwNu1nEMH7Tp3WLhtE",
+    google: [
+      "jbiszvPIv_WYxLUeUQtOo9SS_FwNu1nEMH7Tp3WLhtE",
+      "hGyyMWsTE5lwmNE_wMO7XIiqhoF81betSf-neC34BT0",
+    ],
   },
   alternates: {
     canonical: "/",

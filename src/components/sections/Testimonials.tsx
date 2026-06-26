@@ -34,6 +34,9 @@ export function Testimonials() {
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-text sm:text-4xl">
             Kata Mereka yang Sudah Pakai
           </h2>
+          <p className="mt-2 text-sm text-muted">
+            Ulasan dari pelanggan terverifikasi via WhatsApp, 2023–2026
+          </p>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">

@@ -17,7 +17,7 @@ import { CTA } from "@/components/sections/CTA";
  */
 export default function Home() {
   return (
-    <>
+    <article>
       <Hero />
       <Intro />
       <Problems />
@@ -31,6 +31,6 @@ export default function Home() {
       <FAQ />
       <LatestPosts />
       <CTA />
-    </>
+    </article>
   );
 }

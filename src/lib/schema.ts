@@ -45,6 +45,7 @@ export function allSchemas() {
             "https://www.instagram.com/nexaplus.id/",
             "https://www.tiktok.com/@nexaplus.id",
             "https://nexaplus.web.id/",
+            `https://wa.me/${siteConfig.whatsappNumber}`,
           ],
           contactPoint: {
             "@type": "ContactPoint",
@@ -55,21 +56,33 @@ export function allSchemas() {
           },
         },
 
-        // 2. Elementor Pro ID — Brand (owned by NexaPlus, NOT a separate Organization)
+        // 2. Elementor Pro ID — Organization + Brand (site entity, owned by NexaPlus)
         {
-          "@type": "Brand",
+          "@type": ["Organization", "Brand"],
           "@id": BRAND_ID,
           name: "Elementor Pro ID",
           url: siteConfig.url,
           description:
             "Layanan spesialis jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
           logo: { "@id": LOGO_ID },
-          owner: { "@id": NEXAPLUS_ID },
+          parentOrganization: { "@id": NEXAPLUS_ID },
+          founder: {
+            "@type": "Organization",
+            "@id": NEXAPLUS_ID,
+          },
           sameAs: [
             "https://www.instagram.com/nexaplus.id/",
             "https://www.tiktok.com/@nexaplus.id",
+            `https://wa.me/${siteConfig.whatsappNumber}`,
             `${siteConfig.url}/`,
           ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: `+62-815-7305-9442`,
+            contactType: "customer support",
+            availableLanguage: "Indonesian",
+            areaServed: "ID",
+          },
         },
 
         // 3. Logo — single ImageObject shared by Organization & Brand
