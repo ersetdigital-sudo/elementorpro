@@ -64,9 +64,10 @@ export function Hero() {
             2023
           </p>
 
-          {/* Last updated — GEO signal for freshness */}
+          {/* Last updated + byline — GEO signal for freshness & authorship */}
           <p className="mt-3 text-xs text-muted/70">
-            Terakhir diperbarui: Juni 2026
+            Ditulis oleh Tim Elementor Pro ID · Terakhir diperbarui:{" "}
+            <time dateTime="2026-06">Juni 2026</time>
           </p>
         </ScrollReveal>
       </div>

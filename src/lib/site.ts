@@ -17,10 +17,10 @@ function requiredEnv(key: string, fallback: string): string {
 export const siteConfig = {
   name: requiredEnv("NEXT_PUBLIC_BRAND_NAME", "Elementor Pro ID"),
   parentBrand: requiredEnv("NEXT_PUBLIC_PARENT_BRAND", "NexaPlus"),
-  domain: "jasaelementorpro.web.id",
+  domain: "www.jasaelementorpro.web.id",
   url: requiredEnv(
     "NEXT_PUBLIC_SITE_URL",
-    "https://jasaelementorpro.web.id"
+    "https://www.jasaelementorpro.web.id"
   ).replace(/\/$/, ""),
   email: requiredEnv("NEXT_PUBLIC_EMAIL", "halo@jasaelementorpro.web.id"),
   whatsappNumber: requiredEnv("NEXT_PUBLIC_WHATSAPP_NUMBER", "6281573059442"),
