@@ -4,7 +4,7 @@
  */
 
 function requiredEnv(key: string, fallback: string): string {
-  const value = process.env[key];
+  const value = process.env[key]?.trim();
   if (!value) {
     console.warn(
       `[site] Env "${key}" belum di-set. Memakai fallback: "${fallback}". Ganti di .env.local sebelum production.`
