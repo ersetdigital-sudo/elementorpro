@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
+import MarkdownIt from "markdown-it";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -83,7 +84,18 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const contentHtml = post.content;
+  const contentHtml = (() => {
+    const raw = post.content;
+    // Auto-detect: if content starts with markdown patterns, parse as markdown
+    const looksLikeMarkdown =
+      /^#{1,3}\s|^\*\*|^-\s|^\d+\.\s|^\|.*\|/m.test(raw) &&
+      !raw.trim().startsWith("<");
+    if (looksLikeMarkdown) {
+      const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
+      return md.render(raw);
+    }
+    return raw;
+  })();
 
   return (
     <>
