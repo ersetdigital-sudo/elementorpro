@@ -144,6 +144,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"posts" | "editor" | "import">("posts");
   const [importCode, setImportCode] = useState("");
+  const [markdownMode, setMarkdownMode] = useState(false);
 
   async function fetchPosts() {
     const { data } = await supabase
@@ -460,17 +461,42 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              {/* Rich Text Editor */}
+              {/* Rich Text Editor / Markdown Toggle */}
               <div>
-                <label className="text-xs font-medium text-[#888]">Konten Artikel</label>
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-medium text-[#888]">Konten Artikel</label>
+                  <button
+                    type="button"
+                    onClick={() => setMarkdownMode(!markdownMode)}
+                    className={`rounded-lg px-3 py-1 text-xs font-medium transition ${
+                      markdownMode
+                        ? "bg-brand/20 text-brand"
+                        : "bg-white/5 text-[#888] hover:text-white"
+                    }`}
+                  >
+                    {markdownMode ? "✓ Markdown Mode" : "Markdown Mode"}
+                  </button>
+                </div>
                 <div className="mt-2">
-                  <RichEditor
-                    content={editing.content}
-                    onChange={(html) => setEditing({ ...editing, content: html })}
-                  />
+                  {markdownMode ? (
+                    <textarea
+                      value={editing.content}
+                      onChange={(e) => setEditing({ ...editing, content: e.target.value })}
+                      rows={20}
+                      placeholder={"Tulis konten dalam format Markdown...\n\n## Sub Judul\n\nParagraf...\n\n- List item 1\n- List item 2"}
+                      className="w-full rounded-xl border border-white/10 bg-[#0d1117] px-4 py-3 font-mono text-sm text-white placeholder:text-[#444] focus:border-brand focus:outline-none"
+                    />
+                  ) : (
+                    <RichEditor
+                      content={editing.content}
+                      onChange={(html) => setEditing({ ...editing, content: html })}
+                    />
+                  )}
                 </div>
                 <p className="mt-2 text-xs text-[#555]">
-                  Tips: Gunakan H2 untuk sub-judul utama, H3 untuk sub-sub judul.
+                  {markdownMode
+                    ? "Tips: Gunakan ## untuk H2, ### untuk H3, **bold**, - list. Konten disimpan sebagai Markdown."
+                    : "Tips: Gunakan H2 untuk sub-judul utama, H3 untuk sub-sub judul."}
                 </p>
               </div>
 
