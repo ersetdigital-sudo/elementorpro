@@ -52,7 +52,7 @@ export const pricingPlans: PricingPlan[] = [
     priceNote: "/tahun",
     description: "Untuk developer atau agency dengan volume tinggi.",
     features: [
-      "Elementor Pro Original 10 Domain",
+      "Elementor Pro Original 5 Domain",
       "Auto Update via Dashboard",
       "Garansi Aktivasi 30 Hari",
       "Support WhatsApp Dedicated",

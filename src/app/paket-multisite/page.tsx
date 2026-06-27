@@ -163,7 +163,7 @@ export default function PaketMultisitePage() {
               Paket Starter — 1 Domain
             </Link>
             <Link href="/paket-agency" className="rounded-full border border-white/10 px-5 py-2 text-sm text-muted transition hover:border-brand/30 hover:text-text">
-              Paket Agency — 10 Domain
+              Paket Agency — 5 Domain
             </Link>
           </div>
           <Link href="/#harga" className="mt-4 inline-block text-sm text-brand hover:brightness-125">

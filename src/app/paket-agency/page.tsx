@@ -4,15 +4,15 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Paket Agency — Jasa Install Elementor Pro Original 10 Domain",
+  title: "Paket Agency — Jasa Install Elementor Pro Original 5 Domain",
   description:
-    "Paket Agency: instalasi Elementor Pro original untuk 10 domain Rp349.000/tahun. Dedicated support, auto update, garansi aktivasi 30 hari.",
+    "Paket Agency: instalasi Elementor Pro original untuk 5 domain Rp349.000/tahun. Dedicated support, auto update, garansi aktivasi 30 hari.",
   alternates: { canonical: "/paket-agency" },
 };
 
 const features = [
   {
-    title: "Elementor Pro Original 10 Domain",
+    title: "Elementor Pro Original 5 Domain",
     desc: "Solusi paling ekonomis per website untuk volume tinggi.",
   },
   {
@@ -35,8 +35,8 @@ const faqs = [
     a: "Sangat cocok. Banyak agency menggunakan paket ini untuk menekan biaya lisensi per klien.",
   },
   {
-    q: "Bagaimana jika butuh lebih dari 10 domain?",
-    a: "Hubungi kami via WhatsApp untuk penawaran custom di atas 10 domain dengan harga khusus.",
+    q: "Bagaimana jika butuh lebih dari 5 domain?",
+    a: "Hubungi kami via WhatsApp untuk penawaran custom di atas 5 domain dengan harga khusus.",
   },
 ];
 

@@ -48,7 +48,7 @@ Daripada mengambil risiko dengan plugin nulled, gunakan jasa install Elementor P
 
 - **Paket Starter** — Rp99.000/tahun untuk 1 domain
 - **Paket Multisite** — Rp149.000/tahun untuk 3 domain
-- **Paket Agency** — Rp349.000/tahun untuk 10 domain
+- **Paket Agency** — Rp349.000/tahun untuk 5 domain
 
 Semua paket sudah termasuk lisensi original, auto-update, dan garansi aktivasi 30 hari. Jauh lebih aman dan murah dibanding biaya recovery website yang kena hack.
 

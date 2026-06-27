@@ -179,9 +179,9 @@ export function allSchemas() {
             },
             {
               "@type": "Offer",
-              name: "Paket Agency \u2014 10 Domain",
+              name: "Paket Agency \u2014 5 Domain",
               description:
-                "Elementor Pro Original 10 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
+                "Elementor Pro Original 5 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
               price: "349000",
               priceCurrency: "IDR",
               priceValidUntil: "2026-12-31",
