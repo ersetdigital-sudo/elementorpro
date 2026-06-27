@@ -102,8 +102,8 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
+      <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-16 md:py-24 lg:px-8">
+        <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted sm:mb-8">
           <Link href="/" className="hover:text-text">Beranda</Link>
           <span className="mx-2">/</span>
           <Link href="/blog" className="hover:text-text">Blog</Link>
@@ -115,11 +115,11 @@ export default async function BlogPostPage({ params }: Props) {
           {post.category}
         </span>
 
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-text sm:text-4xl">
+        <h1 className="mt-2 text-2xl font-bold tracking-tight text-text sm:mt-4 sm:text-3xl md:text-4xl">
           {post.title}
         </h1>
 
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted">
+        <div className="mt-2 flex items-center gap-4 text-xs text-muted sm:mt-4 sm:text-sm">
           <span className="inline-flex items-center gap-1.5">
             <Calendar className="h-4 w-4" aria-hidden="true" />
             {new Date(post.date).toLocaleDateString("id-ID", {
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <div
-          className="mt-10 space-y-4 text-sm leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-text [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-text [&_p]:text-muted [&_p]:leading-relaxed [&_strong]:text-text [&_a]:text-brand [&_a]:underline [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_blockquote]:border-l-2 [&_blockquote]:border-brand/50 [&_blockquote]:pl-4 [&_blockquote]:italic [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-xl [&_table]:border [&_table]:border-white/15 [&_table]:bg-white/[0.03] [&_thead]:bg-brand/10 [&_th]:border [&_th]:border-white/15 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:text-brand [&_td]:border [&_td]:border-white/10 [&_td]:px-4 [&_td]:py-3 [&_td]:text-sm [&_tr:nth-child(even)]:bg-white/[0.02] [&_hr]:my-8 [&_hr]:border-white/10"
+          className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:mt-10 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-text [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-text [&_p]:text-muted [&_p]:leading-relaxed [&_strong]:text-text [&_a]:text-brand [&_a]:underline [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_blockquote]:border-l-2 [&_blockquote]:border-brand/50 [&_blockquote]:pl-4 [&_blockquote]:italic [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-xl [&_table]:border [&_table]:border-white/15 [&_table]:bg-white/[0.03] [&_thead]:bg-brand/10 [&_th]:border [&_th]:border-white/15 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:text-brand [&_td]:border [&_td]:border-white/10 [&_td]:px-4 [&_td]:py-3 [&_td]:text-sm [&_tr:nth-child(even)]:bg-white/[0.02] [&_hr]:my-8 [&_hr]:border-white/10"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
