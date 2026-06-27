@@ -86,11 +86,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const contentHtml = (() => {
     const raw = post.content;
-    // Auto-detect: if content starts with markdown patterns, parse as markdown
-    const looksLikeMarkdown =
-      /^#{1,3}\s|^\*\*|^-\s|^\d+\.\s|^\|.*\|/m.test(raw) &&
-      !raw.trim().startsWith("<");
-    if (looksLikeMarkdown) {
+    // If content starts with an HTML tag, it's from Tiptap (HTML). Otherwise treat as Markdown.
+    const isHtml = raw.trim().startsWith("<");
+    if (!isHtml) {
       const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
       return md.render(raw);
     }
