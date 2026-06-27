@@ -6,7 +6,7 @@ import {
   Plus, Edit2, Trash2, Eye, EyeOff, Save, LogIn,
   LayoutDashboard, FileText, ArrowLeft, Search,
   Bold, Italic, Underline, Heading2, Heading3,
-  List, ListOrdered, Link2, Quote, Minus,
+  List, ListOrdered, Link2, Quote, Minus, Upload,
 } from "lucide-react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -142,7 +142,8 @@ export default function AdminPage() {
   const [editing, setEditing] = useState<BlogPostRow | null>(null);
   const [isNew, setIsNew] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<"posts" | "editor">("posts");
+  const [activeTab, setActiveTab] = useState<"posts" | "editor" | "import">("posts");
+  const [importCode, setImportCode] = useState("");
 
   async function fetchPosts() {
     const { data } = await supabase
@@ -189,6 +190,69 @@ export default function AdminPage() {
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     });
+    setActiveTab("editor");
+  }
+
+  function handleImportTsx() {
+    if (!importCode.trim()) {
+      alert("Paste kode TSX terlebih dahulu!");
+      return;
+    }
+
+    // Extract title from metadata or h1
+    let title = "";
+    const metaTitleMatch = importCode.match(/title:\s*["'`]([^"'`]+)["'`]/);
+    if (metaTitleMatch) title = metaTitleMatch[1];
+    if (!title) {
+      const h1Match = importCode.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+      if (h1Match) title = h1Match[1].replace(/\s+/g, " ").replace(/<[^>]+>/g, "").trim();
+    }
+
+    // Extract description from metadata
+    let description = "";
+    const descMatch = importCode.match(/description:\s*\n?\s*["'`]([^"'`]+)["'`]/);
+    if (descMatch) description = descMatch[1];
+    if (!description) {
+      const descAlt = importCode.match(/description:\s*["'`]([^"'`]+)["'`]/);
+      if (descAlt) description = descAlt[1];
+    }
+
+    // Extract content inside <article> ... </article>
+    let content = "";
+    const articleMatch = importCode.match(/<article[^>]*>([\s\S]*?)<\/article>/);
+    if (articleMatch) {
+      content = articleMatch[1]
+        // Remove JSX expressions like {" "}
+        .replace(/\{"\s*"\}/g, " ")
+        .replace(/\{`([^`]*)`\}/g, "$1")
+        // Remove className attributes
+        .replace(/\s*className="[^"]*"/g, "")
+        // Clean up self-closing tags in JSX
+        .replace(/<(\w+)([^>]*)\s*\/>/g, "<$1$2></$1>")
+        .trim();
+    }
+
+    // Generate slug from title
+    const slug = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    // Populate editor
+    setIsNew(true);
+    setEditing({
+      id: "",
+      title,
+      slug,
+      description,
+      content,
+      category: "Artikel",
+      featured_image: "",
+      published: false,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    });
+    setImportCode("");
     setActiveTab("editor");
   }
 
@@ -327,6 +391,8 @@ export default function AdminPage() {
               ? isNew
                 ? "Tulis Artikel Baru"
                 : "Edit Artikel"
+              : activeTab === "import"
+              ? "Import TSX"
               : "Blog Posts"}
           </h2>
           <div className="flex items-center gap-2">
@@ -483,18 +549,75 @@ export default function AdminPage() {
             </div>
           )}
 
+          {/* ─── Import TSX View ─── */}
+          {activeTab === "import" && (
+            <div className="mx-auto max-w-4xl space-y-6">
+              <button
+                onClick={() => setActiveTab("posts")}
+                className="inline-flex items-center gap-2 text-sm text-[#888] hover:text-white transition"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Kembali
+              </button>
+
+              <div>
+                <h3 className="text-lg font-semibold text-white">Import Artikel dari TSX</h3>
+                <p className="mt-1 text-sm text-[#888]">
+                  Paste seluruh kode TSX output dari workflow lo. Parser akan extract title, description, dan konten HTML secara otomatis.
+                </p>
+              </div>
+
+              <div>
+                <label className="text-xs font-medium text-[#888]">Paste TSX Code</label>
+                <textarea
+                  value={importCode}
+                  onChange={(e) => setImportCode(e.target.value)}
+                  rows={20}
+                  placeholder={`Paste kode TSX di sini, contoh:\n\nimport type { Metadata } from "next";\n\nexport const metadata: Metadata = {\n  title: "Judul Artikel",\n  description: "Deskripsi artikel",\n};\n\nexport default function ArticlePage() {\n  return (\n    <main>\n      <article>\n        <h1>Judul Artikel</h1>\n        <p>Konten...</p>\n      </article>\n    </main>\n  );\n}`}
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-[#161b22] px-4 py-3 font-mono text-xs text-white placeholder:text-[#444] focus:border-brand focus:outline-none"
+                />
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setActiveTab("posts")}
+                  className="rounded-lg px-4 py-2 text-sm text-[#888] hover:text-white transition"
+                >
+                  Batal
+                </button>
+                <button
+                  onClick={handleImportTsx}
+                  disabled={!importCode.trim()}
+                  className="inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-black transition hover:brightness-110 disabled:opacity-50"
+                >
+                  <Upload className="h-4 w-4" />
+                  Parse &amp; Import
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* ─── Posts List View ─── */}
           {activeTab === "posts" && (
             <div className="mx-auto max-w-4xl">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-[#888]">{posts.length} artikel</p>
-                <button
-                  onClick={handleNew}
-                  className="inline-flex items-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-black transition hover:brightness-110"
-                >
-                  <Plus className="h-4 w-4" />
-                  Artikel Baru
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => { setImportCode(""); setActiveTab("import"); }}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/5"
+                  >
+                    <Upload className="h-4 w-4" />
+                    Import TSX
+                  </button>
+                  <button
+                    onClick={handleNew}
+                    className="inline-flex items-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-black transition hover:brightness-110"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Artikel Baru
+                  </button>
+                </div>
               </div>
 
               {posts.length === 0 ? (
