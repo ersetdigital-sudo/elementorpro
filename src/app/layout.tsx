@@ -10,7 +10,7 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 export const metadata: Metadata = baseMetadata;
 
 export const viewport: Viewport = {
-  themeColor: "#c5f518",
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
 };
