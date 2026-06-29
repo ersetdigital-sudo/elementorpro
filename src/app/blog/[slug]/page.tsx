@@ -84,10 +84,37 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
+  // Extract FAQ from content for FAQPage schema
+  const faqItems: { question: string; answer: string }[] = [];
+  const faqRegex = /(?:^|\n)(?:#{1,4}\s*)?(?:Q\d*[:.]?\s*|(?:\*\*)?)(.*?\?)\s*(?:\*\*)?\n+(?:A[:.]?\s*)?([^#\n](?:[^\n]*(?:\n(?!(?:#{1,4}\s|Q\d|---|\*\*Q))[^\n]*)*)?)/gm;
+  let faqMatch;
+  while ((faqMatch = faqRegex.exec(post.content)) !== null) {
+    const question = faqMatch[1].replace(/\*\*/g, '').trim();
+    const answer = faqMatch[2].replace(/\*\*/g, '').trim();
+    if (question && answer && question.length > 10 && answer.length > 20) {
+      faqItems.push({ question, answer });
+    }
+  }
+
+  // Add FAQPage schema if FAQ items found
+  if (faqItems.length > 0) {
+    (jsonLd["@graph"] as Record<string, unknown>[]).push({
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
   const contentHtml = (() => {
     const raw = post.content;
     // If content starts with an HTML tag, it's from Tiptap (HTML). Otherwise treat as Markdown.
-    const isHtml = raw.trim().startsWith("<");
+    const isHtml = raw.trim().startsWith("<") && !raw.trim().startsWith("<script");
     if (!isHtml) {
       const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
       return md.render(raw);
