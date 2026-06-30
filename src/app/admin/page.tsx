@@ -698,6 +698,26 @@ export default function AdminPage() {
                           <Edit2 className="h-4 w-4" />
                         </button>
                         <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(post.content || '');
+                            alert('Artikel berhasil di-copy!');
+                          }}
+                          title="Copy Artikel"
+                          className="rounded-lg p-2 text-[#666] hover:bg-white/5 hover:text-white"
+                        >
+                          <FileText className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(post.content || "");
+                            alert("Artikel dicopy ke clipboard!");
+                          }}
+                          title="Copy Artikel"
+                          className="rounded-lg p-2 text-[#666] hover:bg-white/5 hover:text-white"
+                        >
+                          <FileText className="h-4 w-4" />
+                        </button>
+                        <button
                           onClick={() => handleDelete(post.id)}
                           title="Hapus"
                           className="rounded-lg p-2 text-[#666] hover:bg-red-500/10 hover:text-red-400"
