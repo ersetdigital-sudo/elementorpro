@@ -18,24 +18,42 @@ export function Intro() {
 
             <div className="space-y-6 text-center">
               <p className="text-base leading-relaxed text-muted sm:text-lg">
-                Banyak pengguna WordPress sudah kenal{" "}
+                Banyak pemilik website WordPress sudah familiar dengan{" "}
                 <span className="font-medium text-text">Elementor</span> —
-                simpel dan hasilnya terlihat profesional.
+                page builder visual yang memudahkan siapa saja membangun
+                halaman profesional tanpa menulis kode. Namun begitu kebutuhan
+                bertambah, seperti membuat toko online, popup promosi, atau
+                header dan footer custom, versi gratis mulai terasa terbatas.
               </p>
 
               <div className="mx-auto h-px w-16 bg-white/10" />
 
               <p className="text-base leading-relaxed text-muted sm:text-lg">
-                Masalahnya, lisensi Elementor Pro sering terasa{" "}
-                <span className="font-medium text-text">berat untuk pebisnis pemula</span>.
-                Tanpa fitur Pro, form dan popup pun jadi serba terbatas.
+                Di sinilah <span className="font-medium text-text">Elementor Pro</span>{" "}
+                dibutuhkan. Masalahnya, mengurus lisensi resmi secara mandiri
+                sering terasa rumit — mulai dari cara aktivasi, menghubungkan
+                lisensi ke akun, hingga menangani error saat instalasi. Belum
+                lagi risiko tergiur versi bajakan yang justru membahayakan
+                keamanan website.
+              </p>
+
+              <div className="mx-auto h-px w-16 bg-white/10" />
+
+              <p className="text-base leading-relaxed text-muted sm:text-lg">
+                <span className="font-medium text-text">Jasa instal Elementor Pro</span>{" "}
+                dari kami hadir sebagai solusi praktis. Anda tidak perlu
+                mengurus pembelian lisensi sendiri, konfigurasi teknis, atau
+                khawatir salah langkah. Cukup berikan akses sementara ke
+                WordPress Anda, dan tim kami menangani instalasi, aktivasi,
+                hingga verifikasi — umumnya selesai dalam 1–3 jam.
               </p>
 
               <div className="mx-auto h-px w-16 bg-white/10" />
 
               <p className="text-base leading-relaxed text-brand sm:text-lg">
-                Untungnya, ada cara yang lebih praktis untuk tetap mendapatkan
-                semua fitur itu.
+                Hasilnya, Anda mendapatkan Elementor Pro original berlisensi
+                resmi, auto update, dan garansi aktivasi 30 hari — tanpa ribet
+                dan tanpa risiko.
               </p>
             </div>
           </div>

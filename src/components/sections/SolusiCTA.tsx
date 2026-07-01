@@ -13,7 +13,7 @@ export function SolusiCTA() {
         <ScrollReveal>
           <div className="rounded-2xl border border-brand/30 bg-surface p-6 text-center sm:p-10 md:p-12">
             <h2 className="text-xl font-bold tracking-tight text-text sm:text-2xl md:text-3xl">
-              Solusinya Bukan Beli License Sendiri — Pakai Jasa Install dari
+              Solusinya Bukan Beli License Sendiri — Pakai Jasa Instal dari
               Kami Saja.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:mt-5 sm:text-base">

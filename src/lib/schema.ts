@@ -15,8 +15,8 @@ import { faq } from "@/lib/data/faq";
  * - ImageObject (logo, shared) → https://jasaelementorpro.web.id/#logo
  */
 
-const NEXAPLUS_ID = "https://nexaplus.web.id/#organization";
-const BRAND_ID = `${siteConfig.url}/#brand`;
+export const NEXAPLUS_ID = "https://nexaplus.web.id/#organization";
+export const BRAND_ID = `${siteConfig.url}/#brand`;
 const WEBSITE_ID = `${siteConfig.url}/#website`;
 const WEBPAGE_ID = `${siteConfig.url}/#webpage`;
 const SERVICE_ID = `${siteConfig.url}/#service`;
@@ -63,7 +63,7 @@ export function allSchemas() {
           name: "Elementor Pro ID",
           url: siteConfig.url,
           description:
-            "Layanan spesialis jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
+            "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
           logo: { "@id": LOGO_ID },
           parentOrganization: { "@id": NEXAPLUS_ID },
           founder: {
@@ -94,7 +94,7 @@ export function allSchemas() {
           width: "512",
           height: "512",
           caption:
-            "Logo Elementor Pro ID - Jasa Install Elementor Pro Indonesia",
+            "Logo Elementor Pro ID - Jasa Instal Elementor Pro Indonesia",
           inLanguage: "id",
         },
 
@@ -114,10 +114,10 @@ export function allSchemas() {
         {
           "@type": "WebPage",
           "@id": WEBPAGE_ID,
-          name: "Jasa Install Elementor Pro Terpercaya & Bergaransi",
+          name: "Jasa Instal Elementor Pro Terpercaya & Bergaransi",
           url: siteConfig.url,
           description:
-            "Jasa install Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.",
+            "Jasa instal Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.",
           inLanguage: "id",
           isPartOf: { "@id": WEBSITE_ID },
           mainEntity: { "@id": SERVICE_ID },
@@ -125,14 +125,14 @@ export function allSchemas() {
           publisher: { "@id": NEXAPLUS_ID },
         },
 
-        // 6. Service — Jasa Install Elementor Pro Original
+        // 6. Service — Jasa Instal Elementor Pro Original
         {
           "@type": "Service",
           "@id": SERVICE_ID,
-          name: "Jasa Install Elementor Pro Original",
+          name: "Jasa Instal Elementor Pro Original",
           serviceType: "Instalasi Plugin WordPress Premium",
           description:
-            "Jasa install Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari, gratis bonus Essential Addons Pro. Dipercaya lebih dari 6.000 pelanggan.",
+            "Jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari, gratis bonus Essential Addons Pro. Dipercaya lebih dari 6.000 pelanggan.",
           provider: { "@id": NEXAPLUS_ID },
           brand: { "@id": BRAND_ID },
           areaServed: {
@@ -292,7 +292,7 @@ export function aboutPageSchemas() {
         {
           "@type": "Service",
           "@id": SERVICE_ID,
-          name: "Jasa Install Elementor Pro Original",
+          name: "Jasa Instal Elementor Pro Original",
           provider: { "@id": NEXAPLUS_ID },
           brand: { "@id": BRAND_ID },
         },

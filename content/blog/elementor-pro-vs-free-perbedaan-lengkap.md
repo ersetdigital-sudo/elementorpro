@@ -58,4 +58,4 @@ Anda sebaiknya upgrade ke Elementor Pro jika:
 
 ## Cara Mendapatkan Elementor Pro
 
-Anda bisa menggunakan jasa install Elementor Pro dari kami dengan harga mulai Rp99.000/tahun. Lisensi original, auto-update, dan garansi aktivasi 30 hari.
+Anda bisa menggunakan [jasa instal Elementor Pro](/) dari kami dengan harga mulai Rp99.000/tahun. Lisensi original, auto-update, dan garansi aktivasi 30 hari.

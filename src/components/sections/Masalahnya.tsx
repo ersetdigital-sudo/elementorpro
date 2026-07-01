@@ -39,7 +39,7 @@ export function Masalahnya() {
             license murah dari forum, eh malah website kena fatal error,
             license diblokir, atau di-hack. Kami hadir sebagai jalan ketiga:{" "}
             <strong className="text-text">
-              Elementor Pro original, install rapi, harga jasa yang masuk akal.
+              Elementor Pro original, instal rapi, harga jasa yang masuk akal.
             </strong>
           </p>
         </ScrollReveal>

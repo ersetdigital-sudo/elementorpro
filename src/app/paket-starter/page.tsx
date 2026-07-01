@@ -4,7 +4,7 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Paket Starter — Jasa Install Elementor Pro Original 1 Domain",
+  title: "Paket Starter Elementor Pro - Rp99.000/Tahun | Elementor Pro ID",
   description:
     "Paket Starter: instalasi Elementor Pro original untuk 1 domain Rp99.000/tahun. Auto update, garansi aktivasi 30 hari, support WhatsApp.",
   alternates: { canonical: "/paket-starter" },
@@ -17,7 +17,7 @@ const features = [
   },
   {
     title: "Auto Update via Dashboard",
-    desc: "Update langsung dari panel WordPress, tidak perlu install ulang manual.",
+    desc: "Update langsung dari panel WordPress, tidak perlu instal ulang manual.",
   },
   {
     title: "Garansi Aktivasi 30 Hari",
@@ -32,7 +32,7 @@ const features = [
 const faqs = [
   {
     q: "Apakah paket Starter bisa di-upgrade ke Multisite nanti?",
-    a: "Bisa. Anda cukup membayar selisih harga dan kami aktifkan domain tambahan tanpa perlu install ulang dari awal.",
+    a: "Bisa. Anda cukup membayar selisih harga dan kami aktifkan domain tambahan tanpa perlu instal ulang dari awal.",
   },
   {
     q: "Kalau saya pindah domain, apakah lisensi ikut berpindah?",
@@ -49,7 +49,7 @@ export default function PaketStarterPage() {
     {
       "@context": "https://schema.org",
       "@type": "Offer",
-      name: "Paket Starter — Jasa Install Elementor Pro 1 Domain",
+      name: "Paket Starter — Jasa Instal Elementor Pro 1 Domain",
       description:
         "Elementor Pro Original 1 domain, auto update, garansi aktivasi 30 hari, support WhatsApp.",
       price: "99000",
@@ -57,7 +57,27 @@ export default function PaketStarterPage() {
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
       url: `${siteConfig.url}/paket-starter`,
-      seller: { "@type": "Organization", name: "Elementor Pro ID" },
+      seller: {
+        "@type": "Organization",
+        name: "Elementor Pro ID",
+        url: siteConfig.url,
+        description:
+          "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
+        logo: `${siteConfig.url}/logo.png`,
+        sameAs: [
+          "https://www.instagram.com/nexaplus.id/",
+          "https://www.tiktok.com/@nexaplus.id",
+          `https://wa.me/${siteConfig.whatsappNumber}`,
+          `${siteConfig.url}/`,
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+62-815-7305-9442",
+          contactType: "customer support",
+          availableLanguage: "Indonesian",
+          areaServed: "ID",
+        },
+      },
     },
     {
       "@context": "https://schema.org",
@@ -100,7 +120,7 @@ export default function PaketStarterPage() {
         </nav>
 
         <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">
-          Paket Starter — Jasa Install Elementor Pro Original untuk 1 Website
+          Paket Starter — Jasa Instal Elementor Pro Original untuk 1 Website
         </h1>
 
         <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
@@ -173,6 +193,13 @@ export default function PaketStarterPage() {
           <Link href="/#harga" className="mt-4 inline-block text-sm text-brand hover:brightness-125">
             ← Kembali ke Semua Paket
           </Link>
+          <p className="mt-6 text-sm text-muted">
+            Butuh info lengkap soal{" "}
+            <Link href="/" className="text-brand hover:brightness-125">
+              jasa instal Elementor Pro original
+            </Link>
+            ?
+          </p>
         </div>
       </section>
     </>

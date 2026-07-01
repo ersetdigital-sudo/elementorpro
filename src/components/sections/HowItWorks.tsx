@@ -16,7 +16,7 @@ const steps = [
   },
   {
     no: "3",
-    title: "Install & Setup",
+    title: "Instal & Setup",
     desc: "Kami mulai pemasangan dan konfigurasi Elementor Pro. Instalasi umumnya selesai dalam 1–3 jam.",
   },
   {

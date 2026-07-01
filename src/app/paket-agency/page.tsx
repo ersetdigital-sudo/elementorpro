@@ -4,7 +4,7 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Paket Agency — Jasa Install Elementor Pro Original 5 Domain",
+  title: "Paket Agency Elementor Pro - Rp349.000/Tahun | Elementor Pro ID",
   description:
     "Paket Agency: instalasi Elementor Pro original untuk 5 domain Rp349.000/tahun. Dedicated support, auto update, garansi aktivasi 30 hari.",
   alternates: { canonical: "/paket-agency" },
@@ -17,7 +17,7 @@ const features = [
   },
   {
     title: "Auto Update via Dashboard",
-    desc: "Update langsung di semua domain tanpa install ulang.",
+    desc: "Update langsung di semua domain tanpa instal ulang.",
   },
   {
     title: "Garansi Aktivasi 30 Hari",
@@ -45,15 +45,35 @@ export default function PaketAgencyPage() {
     {
       "@context": "https://schema.org",
       "@type": "Offer",
-      name: "Paket Agency — Jasa Install Elementor Pro 10 Domain",
+      name: "Paket Agency — Jasa Instal Elementor Pro 5 Domain",
       description:
-        "Elementor Pro Original 10 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
+        "Elementor Pro Original 5 domain, auto update, garansi aktivasi 30 hari, dedicated support WhatsApp.",
       price: "349000",
       priceCurrency: "IDR",
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
       url: `${siteConfig.url}/paket-agency`,
-      seller: { "@type": "Organization", name: "Elementor Pro ID" },
+      seller: {
+        "@type": "Organization",
+        name: "Elementor Pro ID",
+        url: siteConfig.url,
+        description:
+          "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
+        logo: `${siteConfig.url}/logo.png`,
+        sameAs: [
+          "https://www.instagram.com/nexaplus.id/",
+          "https://www.tiktok.com/@nexaplus.id",
+          `https://wa.me/${siteConfig.whatsappNumber}`,
+          `${siteConfig.url}/`,
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+62-815-7305-9442",
+          contactType: "customer support",
+          availableLanguage: "Indonesian",
+          areaServed: "ID",
+        },
+      },
     },
     {
       "@context": "https://schema.org",
@@ -96,17 +116,17 @@ export default function PaketAgencyPage() {
         </nav>
 
         <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">
-          Paket Agency — Jasa Install Elementor Pro Original untuk 10 Website
+          Paket Agency — Jasa Instal Elementor Pro Original untuk 5 Website
         </h1>
 
         <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
-          Paket Agency adalah layanan instalasi Elementor Pro original untuk 10 domain dengan harga Rp349.000 per tahun. Ditujukan untuk web developer dan agency dengan volume proyek tinggi. Termasuk support WhatsApp dedicated, auto-update, dan garansi aktivasi 30 hari di seluruh domain.
+          Paket Agency adalah layanan instalasi Elementor Pro original untuk 5 domain dengan harga Rp349.000 per tahun. Ditujukan untuk web developer dan agency dengan volume proyek tinggi. Termasuk support WhatsApp dedicated, auto-update, dan garansi aktivasi 30 hari di seluruh domain.
         </p>
 
         {/* Cocok untuk Siapa */}
         <h2 className="mt-12 text-2xl font-bold text-text">Cocok untuk Siapa?</h2>
         <p className="mt-4 text-muted">
-          Paket Agency dirancang untuk web developer profesional, digital agency, atau reseller yang rutin membangun banyak website klien. Dengan 10 domain, biaya per website jadi jauh lebih murah dibanding paket lain.
+          Paket Agency dirancang untuk web developer profesional, digital agency, atau reseller yang rutin membangun banyak website klien. Dengan 5 domain, biaya per website jadi jauh lebih murah dibanding paket lain.
         </p>
 
         {/* Yang Anda Dapatkan */}
@@ -169,6 +189,13 @@ export default function PaketAgencyPage() {
           <Link href="/#harga" className="mt-4 inline-block text-sm text-brand hover:brightness-125">
             ← Kembali ke Semua Paket
           </Link>
+          <p className="mt-6 text-sm text-muted">
+            Butuh info lengkap soal{" "}
+            <Link href="/" className="text-brand hover:brightness-125">
+              jasa instal Elementor Pro original
+            </Link>
+            ?
+          </p>
         </div>
       </section>
     </>

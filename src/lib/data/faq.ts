@@ -10,9 +10,24 @@ export interface FaqItem {
 
 export const faq: FaqItem[] = [
   {
-    question: "Berapa harga jasa install Elementor Pro?",
+    question: "Apa itu jasa instal Elementor Pro?",
     answer:
-      "Harga jasa install Elementor Pro: Rp99.000/tahun (1 domain), Rp149.000/tahun (3 domain), Rp349.000/tahun (5 domain). Semua paket sudah termasuk Elementor Pro original berlisensi resmi, auto update via dashboard, garansi aktivasi 30 hari, dan bonus Essential Addons Pro gratis.",
+      "Jasa instal Elementor Pro adalah layanan pemasangan plugin Elementor Pro original berlisensi resmi ke website WordPress, termasuk aktivasi lisensi, konfigurasi awal, dan bonus Essential Addons Pro, tanpa perlu membeli lisensi sendiri secara terpisah.",
+  },
+  {
+    question: "Berapa harga jasa instal Elementor Pro?",
+    answer:
+      "Harga jasa instal Elementor Pro: Rp99.000/tahun (1 domain), Rp149.000/tahun (3 domain), Rp349.000/tahun (5 domain). Semua paket sudah termasuk Elementor Pro original berlisensi resmi, auto update via dashboard, garansi aktivasi 30 hari, dan bonus Essential Addons Pro gratis.",
+  },
+  {
+    question: "Apa bedanya Elementor Pro original dan bajakan (nulled)?",
+    answer:
+      "Elementor Pro original mendapat update resmi dari developer, keamanan terjamin, dan tidak berisiko malware. Versi bajakan (nulled) rawan disusupi kode berbahaya, tidak bisa update otomatis, dan berisiko error tiba-tiba tanpa dukungan teknis.",
+  },
+  {
+    question: "Apakah aman pakai jasa instal Elementor Pro dari pihak ketiga?",
+    answer:
+      "Aman selama menggunakan lisensi resmi dan penyedia jasa terpercaya. Kami menggunakan lisensi Elementor Pro original resmi, bukan bajakan, sehingga website tetap mendapat update keamanan langsung dari Elementor.",
   },
   {
     question: "Berapa lama proses pengerjaan?",
@@ -43,5 +58,10 @@ export const faq: FaqItem[] = [
     question: "Apakah support seluruh Indonesia?",
     answer:
       "Ya, layanan kami melayani seluruh wilayah Indonesia. Proses dilakukan secara remote via akses WordPress, sehingga lokasi pelanggan tidak menjadi kendala.",
+  },
+  {
+    question: "Berapa lama garansi berlaku setelah instal Elementor Pro?",
+    answer:
+      "Garansi aktivasi berlaku 30 hari sejak tanggal instalasi. Jika dalam periode tersebut Elementor Pro tidak aktif atau bermasalah, perbaikan dilakukan tanpa biaya tambahan.",
   },
 ];

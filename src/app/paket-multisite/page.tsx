@@ -4,7 +4,7 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Paket Multisite — Jasa Install Elementor Pro Original 3 Domain",
+  title: "Paket Multisite Elementor Pro - Rp149.000/Tahun | Elementor Pro ID",
   description:
     "Paket Multisite: instalasi Elementor Pro original untuk 3 domain Rp149.000/tahun. Prioritas support, auto update, garansi aktivasi 30 hari.",
   alternates: { canonical: "/paket-multisite" },
@@ -17,7 +17,7 @@ const features = [
   },
   {
     title: "Auto Update via Dashboard",
-    desc: "Update langsung di ketiga domain tanpa install ulang.",
+    desc: "Update langsung di ketiga domain tanpa instal ulang.",
   },
   {
     title: "Garansi Aktivasi 30 Hari",
@@ -45,7 +45,7 @@ export default function PaketMultisitePage() {
     {
       "@context": "https://schema.org",
       "@type": "Offer",
-      name: "Paket Multisite — Jasa Install Elementor Pro 3 Domain",
+      name: "Paket Multisite — Jasa Instal Elementor Pro 3 Domain",
       description:
         "Elementor Pro Original 3 domain, auto update, garansi aktivasi 30 hari, prioritas support WhatsApp.",
       price: "149000",
@@ -53,7 +53,27 @@ export default function PaketMultisitePage() {
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
       url: `${siteConfig.url}/paket-multisite`,
-      seller: { "@type": "Organization", name: "Elementor Pro ID" },
+      seller: {
+        "@type": "Organization",
+        name: "Elementor Pro ID",
+        url: siteConfig.url,
+        description:
+          "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
+        logo: `${siteConfig.url}/logo.png`,
+        sameAs: [
+          "https://www.instagram.com/nexaplus.id/",
+          "https://www.tiktok.com/@nexaplus.id",
+          `https://wa.me/${siteConfig.whatsappNumber}`,
+          `${siteConfig.url}/`,
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+62-815-7305-9442",
+          contactType: "customer support",
+          availableLanguage: "Indonesian",
+          areaServed: "ID",
+        },
+      },
     },
     {
       "@context": "https://schema.org",
@@ -96,7 +116,7 @@ export default function PaketMultisitePage() {
         </nav>
 
         <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">
-          Paket Multisite — Jasa Install Elementor Pro Original untuk 3 Website
+          Paket Multisite — Jasa Instal Elementor Pro Original untuk 3 Website
         </h1>
 
         <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
@@ -169,6 +189,13 @@ export default function PaketMultisitePage() {
           <Link href="/#harga" className="mt-4 inline-block text-sm text-brand hover:brightness-125">
             ← Kembali ke Semua Paket
           </Link>
+          <p className="mt-6 text-sm text-muted">
+            Butuh info lengkap soal{" "}
+            <Link href="/" className="text-brand hover:brightness-125">
+              jasa instal Elementor Pro original
+            </Link>
+            ?
+          </p>
         </div>
       </section>
     </>

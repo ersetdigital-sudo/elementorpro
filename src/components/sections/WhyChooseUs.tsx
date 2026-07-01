@@ -1,4 +1,4 @@
-import { Clock, ShieldCheck, Headphones, Wallet } from "lucide-react";
+import { Clock, ShieldCheck, Headphones, Wallet, BadgeCheck, RefreshCw, Gift, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
@@ -8,14 +8,34 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
  */
 const reasons = [
   {
-    icon: Clock,
-    title: "Pengerjaan Cepat",
-    desc: "Instalasi umumnya selesai dalam 1–3 jam. Setup lengkap sekitar satu hari kerja, sehingga website Anda tidak lama libur.",
+    icon: BadgeCheck,
+    title: "Lisensi 100% Resmi",
+    desc: "Elementor Pro original berlisensi resmi dari Elementor, bukan nulled atau bajakan. Aman dari malware dan risiko blacklist Google.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Auto Update Selamanya",
+    desc: "Update langsung dari dashboard WordPress setiap ada versi baru. Tidak perlu instal ulang manual atau khawatir tertinggal patch keamanan.",
   },
   {
     icon: ShieldCheck,
-    title: "Aman & Bergaransi",
-    desc: "Pemasangan dilakukan dengan hati-hati tanpa merusak website Anda. Tersedia garansi aktif pemasangan untuk ketenangan Anda.",
+    title: "Garansi Aktivasi 30 Hari",
+    desc: "Jika Elementor Pro tidak aktif atau bermasalah dalam 30 hari setelah instalasi, kami perbaiki tanpa biaya tambahan.",
+  },
+  {
+    icon: Clock,
+    title: "Proses Cepat 1–3 Jam",
+    desc: "Instalasi dan aktivasi umumnya selesai dalam 1–3 jam setelah akses WordPress diterima. Website Anda tidak lama menunggu.",
+  },
+  {
+    icon: Gift,
+    title: "Bonus Essential Addons Pro",
+    desc: "Setiap paket sudah termasuk Essential Addons Pro gratis — ratusan widget tambahan dan ribuan template siap pakai tanpa biaya ekstra.",
+  },
+  {
+    icon: Users,
+    title: "Dipercaya 6.000+ Pelanggan",
+    desc: "Sudah membantu lebih dari 6.000 pemilik website di seluruh Indonesia mengaktifkan Elementor Pro dengan aman dan legal.",
   },
   {
     icon: Wallet,
@@ -38,12 +58,12 @@ export function WhyChooseUs() {
             Kenapa Memilih Kami?
           </h2>
           <p className="mt-4 text-muted">
-            Bukan sekadar install. Kami pastikan Elementor Pro berjalan stabil,
+            Bukan sekadar instal. Kami pastikan Elementor Pro berjalan stabil,
             aman, dan website Anda siap berkembang.
           </p>
         </ScrollReveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((item, i) => (
             <ScrollReveal
               key={item.title}

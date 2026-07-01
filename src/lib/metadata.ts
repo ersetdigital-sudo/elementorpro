@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/site";
 const titleTemplate = `%s | ${siteConfig.name}`;
 
 const defaultTitle =
-  "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro";
+  "Jasa Instal Elementor Pro - Terpercaya & Bergaransi | Elementor Pro ID";
 const defaultDescription =
-  "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai. Auto update, aktivasi cepat, serta garansi layanan.";
+  "Jasa instal Elementor Pro original lisensi resmi, auto update, garansi 30 hari + bonus Essential Addons Pro. Hubungi via WhatsApp sekarang.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -38,24 +38,24 @@ export const baseMetadata: Metadata = {
     locale: "id_ID",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro",
+    title: "Jasa Instal Elementor Pro - Terpercaya & Bergaransi | Elementor Pro ID",
     description:
-      "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai.",
+      "Jasa instal Elementor Pro original lisensi resmi, auto update, garansi 30 hari + bonus Essential Addons Pro. Hubungi via WhatsApp sekarang.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Jasa Install Elementor Pro Original untuk Website WordPress Indonesia",
+        alt: "Jasa Instal Elementor Pro Original untuk Website WordPress Indonesia",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro",
+    title: "Jasa Instal Elementor Pro - Terpercaya & Bergaransi | Elementor Pro ID",
     description:
-      "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai.",
+      "Jasa instal Elementor Pro original lisensi resmi, auto update, garansi 30 hari + bonus Essential Addons Pro. Hubungi via WhatsApp sekarang.",
     images: ["/og.png"],
   },
   robots: {

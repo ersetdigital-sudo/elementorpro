@@ -25,14 +25,14 @@ export const siteConfig = {
   email: requiredEnv("NEXT_PUBLIC_EMAIL", "halo@jasaelementorpro.web.id"),
   whatsappNumber: requiredEnv("NEXT_PUBLIC_WHATSAPP_NUMBER", "6281573059442"),
   description:
-    "Spesialis jasa install Elementor Pro untuk pengguna WordPress Indonesia.",
+    "Spesialis jasa instal Elementor Pro untuk pengguna WordPress Indonesia.",
 } as const;
 
 /** Build URL WhatsApp dengan pesan default. */
 export function whatsappLink(message?: string): string {
   const text = encodeURIComponent(
     message ??
-      `Halo ${siteConfig.name}, saya mau tanya soal jasa install Elementor Pro.`
+      `Halo ${siteConfig.name}, saya mau tanya soal jasa instal Elementor Pro.`
   );
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${text}`;
 }
@@ -40,7 +40,7 @@ export function whatsappLink(message?: string): string {
 /** Mailto link dengan subject default. */
 export function emailLink(subject?: string): string {
   const s = encodeURIComponent(
-    subject ?? "Tanya Jasa Install Elementor Pro"
+    subject ?? "Tanya Jasa Instal Elementor Pro"
   );
   return `mailto:${siteConfig.email}?subject=${s}`;
 }

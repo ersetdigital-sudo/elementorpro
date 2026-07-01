@@ -27,7 +27,7 @@ export function CTA() {
 
           {/* Ritme satu-baris */}
           <div className="mt-6 space-y-1 text-base leading-relaxed text-muted">
-            <p>Dapatkan layanan install Elementor Pro terpercaya untuk website bisnis, toko online, dan landing page.</p>
+            <p>Dapatkan layanan instal Elementor Pro terpercaya untuk website bisnis, toko online, dan landing page.</p>
             <p>Proses cepat, aman, dan bergaransi.</p>
           </div>
 

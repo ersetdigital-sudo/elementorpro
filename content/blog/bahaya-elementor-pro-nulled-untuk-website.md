@@ -44,7 +44,7 @@ Jika terjadi error atau konflik, Anda tidak bisa menghubungi support resmi Eleme
 
 ## Solusi yang Lebih Aman
 
-Daripada mengambil risiko dengan plugin nulled, gunakan jasa install Elementor Pro original dengan harga terjangkau:
+Daripada mengambil risiko dengan plugin nulled, gunakan [jasa instal Elementor Pro](/) original dengan harga terjangkau:
 
 - **Paket Starter** — Rp99.000/tahun untuk 1 domain
 - **Paket Multisite** — Rp149.000/tahun untuk 3 domain

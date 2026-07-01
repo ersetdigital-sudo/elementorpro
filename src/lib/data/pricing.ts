@@ -1,5 +1,5 @@
 /**
- * Pricing data — harga jasa install Elementor Pro.
+ * Pricing data — harga jasa instal Elementor Pro.
  */
 import type { LucideIcon } from "lucide-react";
 import { Check } from "lucide-react";

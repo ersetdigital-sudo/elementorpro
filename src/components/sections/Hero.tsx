@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
  * Hero — H1 = primary keyword.
- * Paragraf hero mengandung "jasa install elementor pro" natural.
+ * Paragraf hero mengandung "jasa instal elementor pro" natural.
  */
 export function Hero() {
   return (
@@ -23,18 +23,18 @@ export function Hero() {
           {/* Badge */}
           <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-xs font-medium text-brand">
             <Zap className="h-3.5 w-3.5" aria-hidden="true" />
-            Jasa Install Elementor Pro Indonesia
+            Jasa Instal Elementor Pro Indonesia
           </span>
 
           {/* H1 — primary keyword */}
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-text sm:text-5xl md:text-6xl">
-            Jasa Install <GradientText>Elementor Pro</GradientText> Indonesia
-            Terpercaya &amp; Bergaransi
+            Jasa Instal <GradientText>Elementor Pro</GradientText> Original
+            &amp; Bergaransi
           </h1>
 
           {/* Subheadline — keyword natural + benefit */}
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            <strong>Jasa Install Elementor Pro Original</strong> untuk WordPress
+            <strong>Jasa Instal Elementor Pro Original</strong> untuk WordPress
             dengan proses aktivasi cepat, auto update, dan garansi layanan.
             Setiap instalasi sudah termasuk{" "}
             <strong>GRATIS Essential Addons Pro</strong>, menghadirkan ratusan

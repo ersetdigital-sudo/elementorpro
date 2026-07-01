@@ -39,7 +39,7 @@ export function Bonus() {
               Selain Elementor Pro, Anda juga mendapatkan{" "}
               <strong className="text-text">Essential Addons Pro</strong> secara
               cuma-cuma. Plugin add-on terpopuler dengan ratusan widget tambahan
-              dan ribuan template siap pakai. Di tempat lain jasa install EA Pro
+              dan ribuan template siap pakai. Di tempat lain jasa instal EA Pro
               saja mulai Rp50.000, di sini{" "}
               <strong className="text-brand">sudah include gratis</strong>.
             </p>

@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Problems } from "@/components/sections/Problems";
 import { Masalahnya } from "@/components/sections/Masalahnya";
+import { OriginalVsBajakan } from "@/components/sections/OriginalVsBajakan";
 import { SolusiCTA } from "@/components/sections/SolusiCTA";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Pricing } from "@/components/sections/Pricing";
@@ -13,7 +14,7 @@ import { LatestPosts } from "@/components/sections/LatestPosts";
 import { CTA } from "@/components/sections/CTA";
 
 /**
- * Homepage — landing page jasa install Elementor Pro.
+ * Homepage — landing page jasa instal Elementor Pro.
  */
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Intro />
       <Problems />
       <Masalahnya />
+      <OriginalVsBajakan />
       <SolusiCTA />
       <HowItWorks />
       <Pricing />

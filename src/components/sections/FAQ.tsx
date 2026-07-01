@@ -15,7 +15,7 @@ export function FAQ() {
             FAQ
           </h2>
           <p className="mt-4 text-muted">
-            Pertanyaan yang paling sering ditanyakan seputar jasa install
+            Pertanyaan yang paling sering ditanyakan seputar jasa instal
             Elementor Pro.
           </p>
         </ScrollReveal>
