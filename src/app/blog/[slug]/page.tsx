@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { getPostBySlug } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 import MarkdownIt from "markdown-it";
 
@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <div
-          className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:mt-10 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-text [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-text [&_p]:text-muted [&_p]:leading-relaxed [&_strong]:text-text [&_a]:text-brand [&_a]:underline [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_blockquote]:border-l-2 [&_blockquote]:border-brand/50 [&_blockquote]:pl-4 [&_blockquote]:italic [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-xl [&_table]:border [&_table]:border-white/15 [&_table]:bg-white/[0.03] [&_thead]:bg-brand/10 [&_th]:border [&_th]:border-white/15 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:text-brand [&_td]:border [&_td]:border-white/10 [&_td]:px-4 [&_td]:py-3 [&_td]:text-sm [&_tr:nth-child(even)]:bg-white/[0.02] [&_hr]:my-8 [&_hr]:border-white/10"
+          className="mt-8 text-base leading-[1.8] text-muted sm:mt-12 sm:text-[17px] [&_h1]:mt-12 [&_h1]:mb-4 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:text-text [&_h1]:sm:text-3xl [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-text [&_h2]:sm:text-2xl [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-text [&_p]:mb-4 [&_p]:text-muted [&_p]:leading-[1.8] [&_strong]:text-text [&_strong]:font-semibold [&_a]:text-brand [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:brightness-125 [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:my-5 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_li]:text-muted [&_li]:leading-[1.7] [&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-brand/40 [&_blockquote]:bg-brand/5 [&_blockquote]:rounded-r-lg [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_blockquote]:py-4 [&_blockquote]:italic [&_blockquote]:text-muted [&_table]:w-full [&_table]:my-8 [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-xl [&_table]:border [&_table]:border-white/10 [&_thead]:bg-brand/5 [&_th]:border [&_th]:border-white/10 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:text-text [&_td]:border [&_td]:border-white/8 [&_td]:px-4 [&_td]:py-3 [&_td]:text-sm [&_tr:nth-child(even)]:bg-white/[0.02] [&_hr]:my-10 [&_hr]:border-white/8 [&_code]:rounded [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-brand/80 [&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:bg-surface-3 [&_pre]:p-5 [&_pre]:text-sm [&_img]:my-6 [&_img]:rounded-xl [&_img]:w-full"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
