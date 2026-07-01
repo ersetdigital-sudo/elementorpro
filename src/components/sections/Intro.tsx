@@ -18,7 +18,11 @@ export function Intro() {
 
             <div className="space-y-6 text-center">
               <p className="text-base leading-relaxed text-muted sm:text-lg">
-                Banyak pemilik website WordPress sudah familiar dengan{" "}
+                <span className="font-medium text-text">Jasa instal Elementor Pro</span>{" "}
+                adalah layanan pemasangan plugin Elementor Pro original
+                berlisensi resmi ke website WordPress, lengkap dengan
+                aktivasi dan bonus Essential Addons Pro. Banyak pemilik
+                website WordPress sudah familiar dengan{" "}
                 <span className="font-medium text-text">Elementor</span> —
                 page builder visual yang memudahkan siapa saja membangun
                 halaman profesional tanpa menulis kode. Namun begitu kebutuhan

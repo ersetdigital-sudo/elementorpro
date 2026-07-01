@@ -106,6 +106,7 @@ export function allSchemas() {
           description:
             "Jasa instal Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.",
           inLanguage: "id",
+          dateModified: "2026-06-30",
           isPartOf: { "@id": WEBSITE_ID },
           mainEntity: { "@id": SERVICE_ID },
           breadcrumb: { "@id": BREADCRUMB_ID },
@@ -120,6 +121,7 @@ export function allSchemas() {
           serviceType: "Instalasi Plugin WordPress Premium",
           description:
             "Jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari, gratis bonus Essential Addons Pro. Dipercaya lebih dari 6.000 pelanggan.",
+          dateModified: "2026-06-30",
           provider: orgInline(),
           brand: { "@id": BRAND_ID },
           areaServed: {
