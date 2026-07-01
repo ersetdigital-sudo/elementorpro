@@ -61,8 +61,6 @@ export default function PaketMultisitePage() {
           "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
         logo: `${siteConfig.url}/logo.png`,
         sameAs: [
-          "https://www.instagram.com/nexaplus.id/",
-          "https://www.tiktok.com/@nexaplus.id",
           `https://wa.me/${siteConfig.whatsappNumber}`,
           `${siteConfig.url}/`,
         ],

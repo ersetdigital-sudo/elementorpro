@@ -35,9 +35,9 @@ export const faq: FaqItem[] = [
       "Instalasi Elementor Pro umumnya selesai dalam 1\u20133 jam. Setup lengkap membutuhkan sekitar satu hari kerja. Setelah selesai, website langsung siap digunakan.",
   },
   {
-    question: "Apakah ada garansi?",
+    question: "Apakah ada garansi dan berapa lama berlaku?",
     answer:
-      "Ya, tersedia garansi aktivasi 30 hari. Jika Elementor Pro tidak aktif atau bermasalah dalam 30 hari setelah pemasangan, kami akan memperbaikinya tanpa biaya tambahan.",
+      "Ya, tersedia garansi aktivasi 30 hari sejak tanggal instalasi. Garansi ini mencakup perbaikan gratis jika Elementor Pro tidak aktif atau bermasalah dalam periode tersebut, tanpa biaya tambahan.",
   },
   {
     question: "Apa perbedaan Elementor Free dan Pro?",
@@ -58,10 +58,5 @@ export const faq: FaqItem[] = [
     question: "Apakah support seluruh Indonesia?",
     answer:
       "Ya, layanan kami melayani seluruh wilayah Indonesia. Proses dilakukan secara remote via akses WordPress, sehingga lokasi pelanggan tidak menjadi kendala.",
-  },
-  {
-    question: "Berapa lama garansi berlaku setelah instal Elementor Pro?",
-    answer:
-      "Garansi aktivasi berlaku 30 hari sejak tanggal instalasi. Jika dalam periode tersebut Elementor Pro tidak aktif atau bermasalah, perbaikan dilakukan tanpa biaya tambahan.",
   },
 ];

@@ -65,8 +65,8 @@ export default async function BlogPostPage({ params }: Props) {
         wordCount: post.content.trim().split(/\s+/).length,
         inLanguage: "id",
         isPartOf: { "@id": `${siteConfig.url}/#website` },
-        author: { "@id": "https://nexaplus.web.id/#organization" },
-        publisher: { "@id": "https://nexaplus.web.id/#organization" },
+        author: { "@type": "Organization", name: "Elementor Pro ID", url: siteConfig.url },
+        publisher: { "@type": "Organization", name: "Elementor Pro ID", url: siteConfig.url },
         image: `${siteConfig.url}/api/og?title=${encodeURIComponent(post.title)}`,
         mainEntityOfPage: {
           "@type": "WebPage",

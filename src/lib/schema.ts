@@ -5,17 +5,15 @@ import { faq } from "@/lib/data/faq";
  * JSON-LD Schema — Unified @graph structure (Entity SEO optimized).
  *
  * Entity hierarchy:
- * - NexaPlus (Organization, parent/owner) → https://nexaplus.web.id/#organization
- * - Elementor Pro ID (Brand, owned by NexaPlus) → https://jasaelementorpro.web.id/#brand
- * - WebSite (publisher: NexaPlus) → https://jasaelementorpro.web.id/#website
+ * - Elementor Pro ID (Organization + Brand) → https://jasaelementorpro.web.id/#brand
+ * - WebSite (publisher: Elementor Pro ID) → https://jasaelementorpro.web.id/#website
  * - WebPage (mainEntity: Service) → https://jasaelementorpro.web.id/#webpage
- * - Service (provider: NexaPlus, brand: Elementor Pro ID) → https://jasaelementorpro.web.id/#service
+ * - Service (provider: Elementor Pro ID, brand: Elementor Pro ID) → https://jasaelementorpro.web.id/#service
  * - FAQPage → https://jasaelementorpro.web.id/#faqpage
  * - BreadcrumbList → https://jasaelementorpro.web.id/#breadcrumb
  * - ImageObject (logo, shared) → https://jasaelementorpro.web.id/#logo
  */
 
-export const NEXAPLUS_ID = "https://nexaplus.web.id/#organization";
 export const BRAND_ID = `${siteConfig.url}/#brand`;
 const WEBSITE_ID = `${siteConfig.url}/#website`;
 const WEBPAGE_ID = `${siteConfig.url}/#webpage`;
@@ -23,6 +21,27 @@ const SERVICE_ID = `${siteConfig.url}/#service`;
 const BREADCRUMB_ID = `${siteConfig.url}/#breadcrumb`;
 const FAQPAGE_ID = `${siteConfig.url}/#faqpage`;
 const LOGO_ID = `${siteConfig.url}/#logo`;
+
+const BRAND_DESCRIPTION =
+  "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.";
+
+/** Inline Organization object — dipakai untuk publisher/provider tanpa @id reference. */
+function orgInline() {
+  return {
+    "@type": "Organization",
+    name: "Elementor Pro ID",
+    url: siteConfig.url,
+    description: BRAND_DESCRIPTION,
+    logo: { "@id": LOGO_ID },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+62-815-7305-9442",
+      contactType: "customer support",
+      availableLanguage: "Indonesian",
+      areaServed: "ID",
+    },
+  };
+}
 
 /**
  * Homepage @graph — rendered in layout.tsx
@@ -32,47 +51,15 @@ export function allSchemas() {
     {
       "@context": "https://schema.org",
       "@graph": [
-        // 1. NexaPlus — Parent Organization (owner of Brand)
-        {
-          "@type": "Organization",
-          "@id": NEXAPLUS_ID,
-          name: "NexaPlus",
-          url: "https://nexaplus.web.id",
-          description:
-            "Agensi digital yang berfokus pada pengembangan website, WordPress, landing page, dan solusi digital untuk bisnis di Indonesia. NexaPlus juga mengelola unit layanan spesialis Elementor Pro ID.",
-          logo: { "@id": LOGO_ID },
-          sameAs: [
-            "https://www.instagram.com/nexaplus.id/",
-            "https://www.tiktok.com/@nexaplus.id",
-            "https://nexaplus.web.id/",
-            `https://wa.me/${siteConfig.whatsappNumber}`,
-          ],
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+62-815-7305-9442",
-            contactType: "customer support",
-            availableLanguage: "Indonesian",
-            areaServed: "ID",
-          },
-        },
-
-        // 2. Elementor Pro ID — Organization + Brand (site entity, owned by NexaPlus)
+        // 1. Elementor Pro ID — Organization + Brand (site entity)
         {
           "@type": ["Organization", "Brand"],
           "@id": BRAND_ID,
           name: "Elementor Pro ID",
           url: siteConfig.url,
-          description:
-            "Layanan spesialis jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia.",
+          description: BRAND_DESCRIPTION,
           logo: { "@id": LOGO_ID },
-          parentOrganization: { "@id": NEXAPLUS_ID },
-          founder: {
-            "@type": "Organization",
-            "@id": NEXAPLUS_ID,
-          },
           sameAs: [
-            "https://www.instagram.com/nexaplus.id/",
-            "https://www.tiktok.com/@nexaplus.id",
             `https://wa.me/${siteConfig.whatsappNumber}`,
             `${siteConfig.url}/`,
           ],
@@ -85,7 +72,7 @@ export function allSchemas() {
           },
         },
 
-        // 3. Logo — single ImageObject shared by Organization & Brand
+        // 2. Logo — single ImageObject shared across entities
         {
           "@type": "ImageObject",
           "@id": LOGO_ID,
@@ -98,7 +85,7 @@ export function allSchemas() {
           inLanguage: "id",
         },
 
-        // 4. WebSite (publisher: NexaPlus)
+        // 3. WebSite (publisher: Elementor Pro ID)
         {
           "@type": "WebSite",
           "@id": WEBSITE_ID,
@@ -106,11 +93,11 @@ export function allSchemas() {
           url: siteConfig.url,
           description: siteConfig.description,
           inLanguage: "id",
-          publisher: { "@id": NEXAPLUS_ID },
+          publisher: orgInline(),
           about: { "@id": SERVICE_ID },
         },
 
-        // 5. WebPage — homepage (mainEntity: Service)
+        // 4. WebPage — homepage (mainEntity: Service)
         {
           "@type": "WebPage",
           "@id": WEBPAGE_ID,
@@ -122,10 +109,10 @@ export function allSchemas() {
           isPartOf: { "@id": WEBSITE_ID },
           mainEntity: { "@id": SERVICE_ID },
           breadcrumb: { "@id": BREADCRUMB_ID },
-          publisher: { "@id": NEXAPLUS_ID },
+          publisher: orgInline(),
         },
 
-        // 6. Service — Jasa Instal Elementor Pro Original
+        // 5. Service — Jasa Instal Elementor Pro Original
         {
           "@type": "Service",
           "@id": SERVICE_ID,
@@ -133,7 +120,7 @@ export function allSchemas() {
           serviceType: "Instalasi Plugin WordPress Premium",
           description:
             "Jasa instal Elementor Pro original berlisensi resmi untuk website WordPress di seluruh Indonesia. Instalasi selesai 1-3 jam, auto update, garansi aktivasi 30 hari, gratis bonus Essential Addons Pro. Dipercaya lebih dari 6.000 pelanggan.",
-          provider: { "@id": NEXAPLUS_ID },
+          provider: orgInline(),
           brand: { "@id": BRAND_ID },
           areaServed: {
             "@type": "Country",
@@ -191,7 +178,7 @@ export function allSchemas() {
           ],
         },
 
-        // 7. BreadcrumbList
+        // 6. BreadcrumbList
         {
           "@type": "BreadcrumbList",
           "@id": BREADCRUMB_ID,
@@ -205,7 +192,7 @@ export function allSchemas() {
           ],
         },
 
-        // 8. FAQPage (isPartOf: WebPage)
+        // 7. FAQPage (isPartOf: WebPage)
         {
           "@type": "FAQPage",
           "@id": FAQPAGE_ID,
@@ -226,34 +213,19 @@ export function allSchemas() {
 
 /**
  * Tentang Kami page @graph — used in /tentang-kami
- * AboutPage.mainEntity → Organization (NexaPlus) karena halaman ini membahas entitas bisnis.
+ * AboutPage.mainEntity → Brand (Elementor Pro ID).
  */
 export function aboutPageSchemas() {
   return [
     {
       "@context": "https://schema.org",
       "@graph": [
-        // Organization reference
-        {
-          "@type": "Organization",
-          "@id": NEXAPLUS_ID,
-          name: "NexaPlus",
-          url: "https://nexaplus.web.id",
-          logo: { "@id": LOGO_ID },
-          sameAs: [
-            "https://www.instagram.com/nexaplus.id/",
-            "https://www.tiktok.com/@nexaplus.id",
-            "https://nexaplus.web.id/",
-          ],
-        },
-
         // Brand reference
         {
           "@type": "Brand",
           "@id": BRAND_ID,
           name: "Elementor Pro ID",
           url: siteConfig.url,
-          owner: { "@id": NEXAPLUS_ID },
         },
 
         // AboutPage → mainEntity: Brand (Elementor Pro ID)
@@ -263,10 +235,10 @@ export function aboutPageSchemas() {
           name: "Tentang Elementor Pro ID",
           url: `${siteConfig.url}/tentang-kami`,
           description:
-            "Elementor Pro ID adalah layanan spesialis lisensi Elementor Pro original dan dukungan teknis WordPress terpercaya di Indonesia, di bawah naungan NexaPlus.",
+            "Elementor Pro ID adalah layanan spesialis lisensi Elementor Pro original dan dukungan teknis WordPress terpercaya di Indonesia.",
           inLanguage: "id",
           isPartOf: { "@id": WEBSITE_ID },
-          publisher: { "@id": NEXAPLUS_ID },
+          publisher: orgInline(),
           about: { "@id": BRAND_ID },
           mainEntity: { "@id": BRAND_ID },
           breadcrumb: {
@@ -293,7 +265,7 @@ export function aboutPageSchemas() {
           "@type": "Service",
           "@id": SERVICE_ID,
           name: "Jasa Instal Elementor Pro Original",
-          provider: { "@id": NEXAPLUS_ID },
+          provider: orgInline(),
           brand: { "@id": BRAND_ID },
         },
 
