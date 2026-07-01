@@ -34,8 +34,11 @@ export function Hero() {
 
           {/* Subheadline — keyword natural + benefit */}
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Jasa install Elementor Pro original untuk website WordPress, landing
-            page, toko online, dan company profile di seluruh Indonesia.
+            <strong>Jasa Install Elementor Pro Original</strong> untuk WordPress
+            dengan proses aktivasi cepat, auto update, dan garansi layanan.
+            Setiap instalasi sudah termasuk{" "}
+            <strong>GRATIS Essential Addons Pro</strong>, menghadirkan ratusan
+            widget premium dan ribuan template siap pakai tanpa biaya tambahan.
           </p>
 
           {/* CTA */}

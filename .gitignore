@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# n8n documentation (contains API keys references)
+/docs/n8n/

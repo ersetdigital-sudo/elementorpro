@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/site";
 const titleTemplate = `%s | ${siteConfig.name}`;
 
 const defaultTitle =
-  "Jasa Install Elementor Pro Bergaransi | Elementor Pro ID";
+  "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro";
 const defaultDescription =
-  "Jasa install Elementor Pro original berlisensi resmi untuk WordPress. Proses cepat 1-3 jam, auto update, dan gratis bonus Essential Addons Pro.";
+  "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai. Auto update, aktivasi cepat, serta garansi layanan.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -38,9 +38,9 @@ export const baseMetadata: Metadata = {
     locale: "id_ID",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Jasa Install Elementor Pro Terpercaya",
+    title: "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro",
     description:
-      "Install Elementor Pro, setup WordPress, dan landing page profesional dengan support WhatsApp.",
+      "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai.",
     images: [
       {
         url: "/og.png",
@@ -53,9 +53,9 @@ export const baseMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Install Elementor Pro Terpercaya",
+    title: "Jasa Install Elementor Pro Original + GRATIS Essential Addons Pro",
     description:
-      "Install Elementor Pro, setup WordPress, dan landing page profesional dengan support WhatsApp.",
+      "Jasa Install Elementor Pro Original untuk WordPress. GRATIS Essential Addons Pro dengan ratusan widget premium dan ribuan template siap pakai.",
     images: ["/og.png"],
   },
   robots: {
